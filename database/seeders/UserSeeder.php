@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         // used in dev mode only
         $users = [
             ['Admin', 'admin@gandewalana.com', 'gandewalanadev123', 'https://ui-avatars.com/api/?name=Admin'],
-            ['User', 'student@gandewalana.com', 'gandewalanadev123', 'https://ui-avatars.com/api/?name=User'],
+            ['User', 'user@gandewalana.com', 'gandewalanadev123', 'https://ui-avatars.com/api/?name=User'],
         ];
 
         foreach ($users as $user) {
