@@ -17,7 +17,7 @@
                                 <span class="icon-at"></span>
                             </div>
                             <div class="text">
-                                <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                                <a href="mailto:needhelp@company.com">official@gandewalana.com</a>
                             </div>
                         </li>
                     </ul>
@@ -44,21 +44,21 @@
                 <div class="main-menu-wrapper-inner clearfix">
                     <div class="main-menu-wrapper__left clearfix">
                         <div class="main-menu-wrapper__logo">
-                            <a href="index.html"><img src="{{asset('frontend/assets/images/resources/logo-1.png')}}" alt=""></a>
+                            <a href="index.html"><img src="{{asset('frontend/assets/images/resources/logo.png')}}" alt="" style="max-height: 36px" ></a>
                         </div>
                         <div class="main-menu-wrapper__main-menu">
                             <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                             <ul class="main-menu__list">
-                                <li class="current"><a href="">Beranda</a></li>
-                                <li class="dropdown">
+                                <li class="@yield('beranda-active')"><a href="">Beranda</a></li>
+                                <li class="dropdown @yield('destination-active')">
                                     <a href="">Destinations</a>
                                     <ul>
                                         <li><a href="">Desa Krandegan</a></li>
                                         <li><a href="">Kawasan Wisata Gandewalana</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="">Roadmap</a></li>
-                                <li class="dropdown">
+                                <li class="@yield('roadmap-active')"><a href="">Roadmap</a></li>
+                                <li class="dropdown @yield('informasi-active')">
                                     <a href="">Informasi</a>
                                     <ul>
                                         <li><a href="">Fasilitas</a></li>
@@ -68,8 +68,8 @@
                                         <li><a href="">Promo</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="">Galeri</a></li>
-                                <li><a href="">Berita</a></li>
+                                <li class="@yield('galeri-active')"><a href="">Galeri</a></li>
+                                <li class="@yield('berita-active')"><a href="">Berita</a></li>
                             </ul>
                         </div>
                     </div>

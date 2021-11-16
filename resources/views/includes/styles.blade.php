@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="{{asset('frontend/assets/vendors/nouislider/nouislider.pips.css')}}" />
 <link rel="stylesheet" href="{{asset('frontend/assets/vendors/odometer/odometer.min.css')}}" />
 <link rel="stylesheet" href="{{asset('frontend/assets/vendors/swiper/swiper.min.css')}}" />
-<link rel="stylesheet" href="{{asset('frontend/assets/vendors/tevily-icons/style.c')}}ss">
+<link rel="stylesheet" href="{{asset('frontend/assets/vendors/tevily-icons/style.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/assets/vendors/tiny-slider/tiny-slider.min.css')}}" />
 <link rel="stylesheet" href="{{asset('frontend/assets/vendors/reey-font/stylesheet.css')}}" />
 <link rel="stylesheet" href="{{asset('frontend/assets/vendors/owl-carousel/owl.carousel.min.css')}}" />
@@ -29,5 +29,5 @@
 <link rel="stylesheet" href="{{asset('frontend/assets/vendors/timepicker/timePicker.css')}}" />
 
 <!-- template styles -->
-<link rel="stylesheet" href="{{asset('frontend/assets/css/tevily.css')}}" />
+<link rel="stylesheet" href="{{asset('frontend/assets/css/tevily.css?v=1')}}" />
 <link rel="stylesheet" href="{{asset('frontend/assets/css/tevily-responsive.css')}}" />
