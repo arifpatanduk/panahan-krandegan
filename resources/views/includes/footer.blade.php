@@ -7,8 +7,7 @@
                     <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                         <div class="footer-widget__column footer-widget__about">
                             <div class="footer-widget__about-logo">
-                                <a href="{{route('homepage')}}"><img src="{{asset('frontend/assets/images/resources/footer-logo.png')}}"
-                                        alt=""></a>
+                                {{-- <a href="{{route('homepage')}}"><img src="{{asset('frontend/assets/images/resources/footer-logo.png')}}"alt=""></a> --}}
                             </div>
                             <p class="footer-widget__about-text">Welcome to our Trip and Tour Agency. Lorem
                                 simply text amet cing elit.</p>
