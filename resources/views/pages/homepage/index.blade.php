@@ -199,8 +199,8 @@
     </section>
     <!--Destinations One End--> 
 
-   {{-- <!--About One Start-->
-    <section class="about-one">
+   <!--About One Start-->
+    {{-- <section class="about-one">
         <div class="about-one-shape-1 wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
             <img src="assets/images/shapes/about-one-shape-1.png" alt="">
         </div>
@@ -270,11 +270,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--About One End-->
 
     <!--Popular Tours Start-->
-    <section class="popular-tours">
+    {{-- <section class="popular-tours">
         <div class="popular-tours__container">
             <div class="section-title text-center">
                 <span class="section-title__tagline">Featured tours</span>
@@ -563,11 +563,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Popular Tours End-->
 
     <!--Video One Start-->
-    <section class="video-one">
+    {{-- <section class="video-one">
         <div class="video-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
             style="background-image: url(assets/images/backgrounds/video-one-bg.jpg)"></div>
         <div class="container">
@@ -618,11 +618,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Video One End-->
 
     <!--Brand One Start-->
-    <section class="brand-one">
+    {{-- <section class="brand-one">
         <div class="brand-one-shape" style="background-image: url(assets/images/shapes/brand-one-shape.png)"></div>
         <div class="container">
             <div class="row">
@@ -696,11 +696,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Brand One End-->
 
     <!--Testimonial One Start-->
-    <section class="testimonial-one">
+    {{-- <section class="testimonial-one">
         <div class="testimonial-one-shape-2 float-bob-y">
             <img src="assets/images/shapes/testimonial-one-shape-2.png" alt="">
         </div>
@@ -910,11 +910,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Testimonial One End-->
 
     <!--Gallery One Start-->
-    <section class="gallery-one">
+    {{-- <section class="gallery-one">
         <div class="gallery-one-bg" style="background-image: url(assets/images/shapes/gallery-map.png)"></div>
         <div class="gallery-one__container-box clearfix">
             <ul class="list-unstyled gallery-one__content clearfix">
@@ -965,7 +965,7 @@
                 </li>
             </ul>
         </div>
-    </section>
+    </section> --}}
     <!--Gallery Oned End-->
 
     <!--Why Choose Start-->
@@ -973,23 +973,22 @@
         <div class="why-choose__container">
             <div class="why-choose__left">
                 <div class="why-choose__left-bg"
-                    style="background-image: url(assets/images/backgrounds/why-choose-left-bg.jpg)"></div>
-                <div class="why-choose__toggle">
+                    style="background-image: url('frontend/assets/images/backgrounds/krandegan.jpg')"></div>
+                {{-- <div class="why-choose__toggle">
                     <p>Trips <br> & tours</p>
-                </div>
+                </div> --}}
             </div>
             <div class="why-choose__right">
                 <div class="why-choose__right-map"
-                    style="background-image: url(assets/images/shapes/why-choose-right-map.png)"></div>
+                    style="background-image: url(frontend/assets/images/shapes/why-choose-right-map.png)"></div>
                 <div class="why-choose__right-content">
                     <div class="section-title text-left">
-                        <span class="section-title__tagline">Our benefit lists</span>
-                        <h2 class="section-title__title">Why Choose Tevily</h2>
+                        <span class="section-title__tagline">Tentang</span>
+                        <h2 class="section-title__title">Desa Krandegan</h2>
                     </div>
-                    <p class="why-choose__right-text">There are many variations of passages of Lorem Ipsum is simply
-                        free text available in the market for you, but the majority have suffered alteration in some
-                        form.</p>
-                    <ul class="list-unstyled why-choose__list">
+                    <p class="why-choose__right-text">Desa Krandegan terletak di Kec. Bayan Purworejo menjadi Desa Mandiri pada
+                        awal 2021 berkat dukungan aplikasi Early Warning System Banjir di Sungai Jali.</p>
+                    {{-- <ul class="list-unstyled why-choose__list">
                         <li>
                             <div class="icon">
                                 <span class="icon-travel"></span>
@@ -1010,7 +1009,7 @@
                                     consectetur notted.</p>
                             </div>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </div>
@@ -1018,7 +1017,7 @@
     <!--Why Choose End-->
 
     <!--News One Start-->
-    <section class="news-one">
+    {{-- <section class="news-one">
         <div class="container">
             <div class="news-one__top">
                 <div class="row">
@@ -1114,6 +1113,6 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!--News One End--> --}}
+    </section> --}}
+    <!--News One End-->
 @endsection

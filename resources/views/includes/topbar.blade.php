@@ -49,11 +49,11 @@
                         <div class="main-menu-wrapper__main-menu">
                             <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                             <ul class="main-menu__list">
-                                <li class="current"><a href="">Beranda</a></li>
+                                <li class="current"><a href="/">Beranda</a></li>
                                 <li class="dropdown">
-                                    <a href="">Destinations</a>
+                                    <a href="/about">Destinations</a>
                                     <ul>
-                                        <li><a href="">Desa Krandegan</a></li>
+                                        <li><a href="/about">Desa Krandegan</a></li>
                                         <li><a href="">Kawasan Wisata Gandewalana</a></li>
                                     </ul>
                                 </li>
@@ -68,7 +68,7 @@
                                         <li><a href="">Promo</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="">Galeri</a></li>
+                                <li><a href="/galeri">Galeri</a></li>
                                 <li><a href="">Berita</a></li>
                             </ul>
                         </div>
