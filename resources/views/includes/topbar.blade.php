@@ -44,20 +44,15 @@
                 <div class="main-menu-wrapper-inner clearfix">
                     <div class="main-menu-wrapper__left clearfix">
                         <div class="main-menu-wrapper__logo">
-                            <a href="index.html"><img src="{{asset('frontend/assets/images/resources/logo.png')}}" alt="" style="max-height: 36px" ></a>
+                            <a href="index.html"><img src="{{asset('frontend/assets/images/resources/logo.png')}}"
+                                    alt="" style="max-height: 36px"></a>
                         </div>
                         <div class="main-menu-wrapper__main-menu">
                             <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                             <ul class="main-menu__list">
-<<<<<<< HEAD
-                                <li class="current"><a href="/">Beranda</a></li>
-                                <li class="dropdown">
-                                    <a href="/about">Destinations</a>
-=======
                                 <li class="@yield('beranda-active')"><a href="">Beranda</a></li>
                                 <li class="dropdown @yield('destination-active')">
                                     <a href="">Destinations</a>
->>>>>>> 7d50a0652fc1f1bd9db1faa487e9f253bbedcdc7
                                     <ul>
                                         <li><a href="/about">Desa Krandegan</a></li>
                                         <li><a href="">Kawasan Wisata Gandewalana</a></li>
@@ -74,13 +69,8 @@
                                         <li><a href="">Promo</a></li>
                                     </ul>
                                 </li>
-<<<<<<< HEAD
-                                <li><a href="/galeri">Galeri</a></li>
-                                <li><a href="">Berita</a></li>
-=======
                                 <li class="@yield('galeri-active')"><a href="">Galeri</a></li>
                                 <li class="@yield('berita-active')"><a href="">Berita</a></li>
->>>>>>> 7d50a0652fc1f1bd9db1faa487e9f253bbedcdc7
                             </ul>
                         </div>
                     </div>
