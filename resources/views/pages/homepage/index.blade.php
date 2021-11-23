@@ -200,10 +200,89 @@
     </section>
     <!--Destinations One End-->
 
+<<<<<<< HEAD
+   <!--About One Start-->
+    {{-- <section class="about-one">
+        <div class="about-one-shape-1 wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
+            <img src="assets/images/shapes/about-one-shape-1.png" alt="">
+        </div>
+        <div class="about-one-shape-2 float-bob-y"><img src="assets/images/shapes/about-one-shape-2.png" alt="">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 wow fadeInLeft" data-wow-duration="1500ms">
+                    <div class="about-one__left">
+                        <div class="about-one__img-box">
+                            <div class="about-one__img">
+                                <img src="assets/images/resources/about-one-img-1.png" alt="">
+                            </div>
+                            <div class="about-one__call">
+                                <div class="about-one__call-icon">
+                                    <span class="icon-phone-call"></span>
+                                </div>
+                                <div class="about-one__call-number">
+                                    <p>Book Tour Now</p>
+                                    <h4><a href="tel:666-888-0000">666 888 0000</a></h4>
+                                </div>
+                            </div>
+                            <div class="about-one__discount">
+                                <h2>30%</h2>
+                                <h3>Discount</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="about-one__right">
+                        <div class="section-title text-left">
+                            <span class="section-title__tagline">Get to know us</span>
+                            <h2 class="section-title__title">Plan Your Trip with Trevily</h2>
+                        </div>
+                        <p class="about-one__right-text">There are many variations of passages of available but the
+                            majority have suffered alteration in some form, by injected hum randomised words which
+                            don't look even slightly.</p>
+                        <ul class="list-unstyled about-one__points">
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <div class="text">
+                                    <p>Invest in your simply neighborhood</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <div class="text">
+                                    <p>Support people in free text extreme need</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <div class="text">
+                                    <p>Largest global industrial business community</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#" class="about-one__btn thm-btn">Book with us now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+    <!--About One End-->
+
+    <!--Popular Tours Start-->
+    {{-- <section class="popular-tours">
+=======
     {{-- iklan --}}
 
     <!--Informasi Start-->
     <section class="popular-tours" style="margin-top: 100px">
+>>>>>>> 7d50a0652fc1f1bd9db1faa487e9f253bbedcdc7
         <div class="popular-tours__container">
             <div class="section-title text-center">
                 <span class="section-title__tagline">Informasi</span>
@@ -326,6 +405,26 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+    </section> --}}
+    <!--Popular Tours End-->
+
+    <!--Video One Start-->
+    {{-- <section class="video-one">
+        <div class="video-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
+            style="background-image: url(assets/images/backgrounds/video-one-bg.jpg)"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="video-one__left">
+                        <div class="video-one__video-link">
+                            <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
+                                <div class="video-one__video-icon">
+                                    <span class="icon-play-button"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+=======
     </section>
     <!--Why Choose End-->
 
@@ -339,6 +438,7 @@
                         <img src="{{asset('frontend/assets/images/gallery/gallery-one-img-1.jpg')}}" alt="">
                         <div class="gallery-one__iocn">
                             <a class="img-popup" href="{{asset('frontend/assets/images/gallery/gallery-one-img-1.jpg')}}"><i class="fab fa-instagram"></i></a>
+>>>>>>> 7d50a0652fc1f1bd9db1faa487e9f253bbedcdc7
                         </div>
                     </div>
                 </li>
@@ -376,12 +476,21 @@
                 </li>
             </ul>
         </div>
+<<<<<<< HEAD
+    </section> --}}
+    <!--Video One End-->
+
+    <!--Brand One Start-->
+    {{-- <section class="brand-one">
+        <div class="brand-one-shape" style="background-image: url(assets/images/shapes/brand-one-shape.png)"></div>
+=======
     </section>
     <!--Gallery Oned End-->
 
     <!--Partner One Start-->
     <section class="brand-one">
         <div class="brand-one-shape" style="background-image: url({{asset('frontend/assets/images/shapes/brand-one-shape.png')}})"></div>
+>>>>>>> 7d50a0652fc1f1bd9db1faa487e9f253bbedcdc7
         <div class="container">
             <div class="row">
                 <div class="col-xl-3">
@@ -454,11 +563,333 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Brand One End-->
 
+<<<<<<< HEAD
+    <!--Testimonial One Start-->
+    {{-- <section class="testimonial-one">
+        <div class="testimonial-one-shape-2 float-bob-y">
+            <img src="assets/images/shapes/testimonial-one-shape-2.png" alt="">
+        </div>
+        <div class="testimonial-one-shape-3 wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
+            <img src="assets/images/shapes/testimonial-one-shape-3.png" alt="">
+        </div>
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="section-title__tagline">Testimonials & reviews</span>
+                <h2 class="section-title__title">What They’re Saying</h2>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="testimonial-one__carousel owl-theme owl-carousel">
+                        <div class="testimonial-one__single">
+                            <div class="testimonial-one__img">
+                                <img src="assets/images/testimonial/testimonial-one-img-1.png" alt="">
+                            </div>
+                            <div class="testimonail-one__content">
+                                <div class="testimonial-one__top-revivew-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="testimonial-one__text">This is due to their best service, pricing and
+                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
+                                    irure lupsum reprehenderit.</p>
+                                <div class="testimonial-one__client-info">
+                                    <h3 class="testimonial-one__client-name">Shirley Smith</h3>
+                                    <p class="testimonial-one__client-title">Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-one__single">
+                            <div class="testimonial-one__img">
+                                <img src="assets/images/testimonial/testimonial-one-img-2.png" alt="">
+                            </div>
+                            <div class="testimonail-one__content">
+                                <div class="testimonial-one__top-revivew-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="testimonial-one__text">This is due to their best service, pricing and
+                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
+                                    irure lupsum reprehenderit.</p>
+                                <div class="testimonial-one__client-info">
+                                    <h3 class="testimonial-one__client-name">Kevin Martin</h3>
+                                    <p class="testimonial-one__client-title">Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-one__single">
+                            <div class="testimonial-one__img">
+                                <img src="assets/images/testimonial/testimonial-one-img-3.png" alt="">
+                            </div>
+                            <div class="testimonail-one__content">
+                                <div class="testimonial-one__top-revivew-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="testimonial-one__text">This is due to their best service, pricing and
+                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
+                                    irure lupsum reprehenderit.</p>
+                                <div class="testimonial-one__client-info">
+                                    <h3 class="testimonial-one__client-name">Jessica Brown</h3>
+                                    <p class="testimonial-one__client-title">Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-one__single">
+                            <div class="testimonial-one__img">
+                                <img src="assets/images/testimonial/testimonial-one-img-1.png" alt="">
+                            </div>
+                            <div class="testimonail-one__content">
+                                <div class="testimonial-one__top-revivew-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="testimonial-one__text">This is due to their best service, pricing and
+                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
+                                    irure lupsum reprehenderit.</p>
+                                <div class="testimonial-one__client-info">
+                                    <h3 class="testimonial-one__client-name">Shirley Smith</h3>
+                                    <p class="testimonial-one__client-title">Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-one__single">
+                            <div class="testimonial-one__img">
+                                <img src="assets/images/testimonial/testimonial-one-img-2.png" alt="">
+                            </div>
+                            <div class="testimonail-one__content">
+                                <div class="testimonial-one__top-revivew-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="testimonial-one__text">This is due to their best service, pricing and
+                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
+                                    irure lupsum reprehenderit.</p>
+                                <div class="testimonial-one__client-info">
+                                    <h3 class="testimonial-one__client-name">Kevin Martin</h3>
+                                    <p class="testimonial-one__client-title">Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-one__single">
+                            <div class="testimonial-one__img">
+                                <img src="assets/images/testimonial/testimonial-one-img-3.png" alt="">
+                            </div>
+                            <div class="testimonail-one__content">
+                                <div class="testimonial-one__top-revivew-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="testimonial-one__text">This is due to their best service, pricing and
+                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
+                                    irure lupsum reprehenderit.</p>
+                                <div class="testimonial-one__client-info">
+                                    <h3 class="testimonial-one__client-name">Jessica Brown</h3>
+                                    <p class="testimonial-one__client-title">Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-one__single">
+                            <div class="testimonial-one__img">
+                                <img src="assets/images/testimonial/testimonial-one-img-1.png" alt="">
+                            </div>
+                            <div class="testimonail-one__content">
+                                <div class="testimonial-one__top-revivew-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="testimonial-one__text">This is due to their best service, pricing and
+                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
+                                    irure lupsum reprehenderit.</p>
+                                <div class="testimonial-one__client-info">
+                                    <h3 class="testimonial-one__client-name">Shirley Smith</h3>
+                                    <p class="testimonial-one__client-title">Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-one__single">
+                            <div class="testimonial-one__img">
+                                <img src="assets/images/testimonial/testimonial-one-img-2.png" alt="">
+                            </div>
+                            <div class="testimonail-one__content">
+                                <div class="testimonial-one__top-revivew-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="testimonial-one__text">This is due to their best service, pricing and
+                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
+                                    irure lupsum reprehenderit.</p>
+                                <div class="testimonial-one__client-info">
+                                    <h3 class="testimonial-one__client-name">Kevin Martin</h3>
+                                    <p class="testimonial-one__client-title">Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-one__single">
+                            <div class="testimonial-one__img">
+                                <img src="assets/images/testimonial/testimonial-one-img-3.png" alt="">
+                            </div>
+                            <div class="testimonail-one__content">
+                                <div class="testimonial-one__top-revivew-box">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="testimonial-one__text">This is due to their best service, pricing and
+                                    customer support. It’s throughly refresing to such a personal touch. Duis aute
+                                    irure lupsum reprehenderit.</p>
+                                <div class="testimonial-one__client-info">
+                                    <h3 class="testimonial-one__client-name">Jessica Brown</h3>
+                                    <p class="testimonial-one__client-title">Customer</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+    <!--Testimonial One End-->
+
+    <!--Gallery One Start-->
+    {{-- <section class="gallery-one">
+        <div class="gallery-one-bg" style="background-image: url(assets/images/shapes/gallery-map.png)"></div>
+        <div class="gallery-one__container-box clearfix">
+            <ul class="list-unstyled gallery-one__content clearfix">
+                <li class="wow fadeInUp" data-wow-delay="100ms">
+                    <div class="gallery-one__img-box">
+                        <img src="assets/images/gallery/gallery-one-img-1.jpg" alt="">
+                        <div class="gallery-one__iocn">
+                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-1.jpg"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="wow fadeInUp" data-wow-delay="200ms">
+                    <div class="gallery-one__img-box">
+                        <img src="assets/images/gallery/gallery-one-img-2.jpg" alt="">
+                        <div class="gallery-one__iocn">
+                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-2.jpg"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="wow fadeInUp" data-wow-delay="300ms">
+                    <div class="gallery-one__img-box">
+                        <img src="assets/images/gallery/gallery-one-img-3.jpg" alt="">
+                        <div class="gallery-one__iocn">
+                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-3.jpg"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="wow fadeInUp" data-wow-delay="400ms">
+                    <div class="gallery-one__img-box">
+                        <img src="assets/images/gallery/gallery-one-img-4.jpg" alt="">
+                        <div class="gallery-one__iocn">
+                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-4.jpg"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="wow fadeInUp" data-wow-delay="500ms">
+                    <div class="gallery-one__img-box">
+                        <img src="assets/images/gallery/gallery-one-img-5.jpg" alt="">
+                        <div class="gallery-one__iocn">
+                            <a class="img-popup" href="assets/images/gallery/gallery-one-img-5.jpg"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section> --}}
+    <!--Gallery Oned End-->
+
+    <!--Why Choose Start-->
+    <section class="why-choose">
+        <div class="why-choose__container">
+            <div class="why-choose__left">
+                <div class="why-choose__left-bg"
+                    style="background-image: url('frontend/assets/images/backgrounds/krandegan.jpg')"></div>
+                {{-- <div class="why-choose__toggle">
+                    <p>Trips <br> & tours</p>
+                </div> --}}
+            </div>
+            <div class="why-choose__right">
+                <div class="why-choose__right-map"
+                    style="background-image: url(frontend/assets/images/shapes/why-choose-right-map.png)"></div>
+                <div class="why-choose__right-content">
+                    <div class="section-title text-left">
+                        <span class="section-title__tagline">Tentang</span>
+                        <h2 class="section-title__title">Desa Krandegan</h2>
+                    </div>
+                    <p class="why-choose__right-text">Desa Krandegan terletak di Kec. Bayan Purworejo menjadi Desa Mandiri pada
+                        awal 2021 berkat dukungan aplikasi Early Warning System Banjir di Sungai Jali.</p>
+                    {{-- <ul class="list-unstyled why-choose__list">
+                        <li>
+                            <div class="icon">
+                                <span class="icon-travel"></span>
+                            </div>
+                            <div class="text">
+                                <h4>Professional and Certified</h4>
+                                <p>Lorem ipsum is simply free text dolor sit but the majority have suffered amet,
+                                    consectetur notted.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-travel-map"></span>
+                            </div>
+                            <div class="text">
+                                <h4>Get Instant Tour Bookings</h4>
+                                <p>Lorem ipsum is simply free text dolor sit but the majority have suffered amet,
+                                    consectetur notted.</p>
+                            </div>
+                        </li>
+                    </ul> --}}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Why Choose End-->
+
+    <!--News One Start-->
+    {{-- <section class="news-one">
+=======
     <!--Artikel One Start-->
     <section class="news-one">
+>>>>>>> 7d50a0652fc1f1bd9db1faa487e9f253bbedcdc7
         <div class="container">
             <div class="news-one__top">
                 <div class="row">
@@ -554,6 +985,11 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+    </section> --}}
+    <!--News One End-->
+=======
     </section>
     <!--Artikel One End-->
+>>>>>>> 7d50a0652fc1f1bd9db1faa487e9f253bbedcdc7
 @endsection
