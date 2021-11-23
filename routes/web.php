@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +19,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
+
+// Google login
+Route::get('login/google', [SocialiteLoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [SocialiteLoginController::class, 'handleGoogleCallback'])->name('callback.google');
+
+// Facebook login
+Route::get('login/facebook', [SocialiteLoginController::class, 'redirectToFacebook'])->name('login.Facebook');
+Route::get('login/facebook/callback', [SocialiteLoginController::class, 'handleFacebookCallback'])->name('callback.facebook');
+
 
 Auth::routes();
 
