@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,12 +34,10 @@ Route::get('login/facebook', [SocialiteLoginController::class, 'redirectToFacebo
 Route::get('login/facebook/callback', [SocialiteLoginController::class, 'handleFacebookCallback'])->name('callback.facebook');
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     // route for all roles
 
