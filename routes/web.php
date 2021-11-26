@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\SocialiteLoginController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\GalleryController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +21,53 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [HomepageController::class, 'index'])->name('homepage');
+Route::get('/galeri', [GalleryController::class, 'index']);
+Route::get('/about', [AboutController::class, 'index']);
+
+// Google login
+Route::get('login/google', [SocialiteLoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [SocialiteLoginController::class, 'handleGoogleCallback'])->name('callback.google');
+
+// Facebook login
+Route::get('login/facebook', [SocialiteLoginController::class, 'redirectToFacebook'])->name('login.Facebook');
+Route::get('login/facebook/callback', [SocialiteLoginController::class, 'handleFacebookCallback'])->name('callback.facebook');
+
+
+Auth::routes(['verify' => true]);
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    // route for all roles
+
+
+    /**
+     * --------------------------------------------------------------
+     * ROUTE ADMIN
+     * --------------------------------------------------------------
+     */
+    Route::middleware('role:Admin')
+        ->name('admin')
+        ->prefix('admin')
+        ->group(function () {
+
+            // route for admin only
+            Route::get('/', [Admin\PagesController::class, 'index'])->name('index');
+        });
+
+
+    /**
+     * --------------------------------------------------------------
+     * ROUTE USER
+     * --------------------------------------------------------------
+     */
+    Route::middleware('role:User')
+        ->name('user')
+        ->prefix('user')
+        ->group(function () {
+
+            // route for user only
+
+        });
 });
