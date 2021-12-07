@@ -25,14 +25,11 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 Route::get('/galeri', [GalleryController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 
-// Google login
-Route::get('login/google', [SocialiteLoginController::class, 'redirectToGoogle'])->name('login.google');
-Route::get('login/google/callback', [SocialiteLoginController::class, 'handleGoogleCallback'])->name('callback.google');
+// Socialite login
+Route::get('login/{provider}', [SocialiteLoginController::class, 'redirectToProvider'])->name('login.provider');
 
-// Facebook login
-Route::get('login/facebook', [SocialiteLoginController::class, 'redirectToFacebook'])->name('login.Facebook');
-Route::get('login/facebook/callback', [SocialiteLoginController::class, 'handleFacebookCallback'])->name('callback.facebook');
-
+// Socialite callback
+Route::get('login/{provider}/callback', [SocialiteLoginController::class, 'handleCallback'])->name('callback.socialite');
 
 Auth::routes(['verify' => true]);
 

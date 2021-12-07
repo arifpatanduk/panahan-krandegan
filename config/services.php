@@ -42,10 +42,10 @@ return [
         'redirect' => 'http://127.0.0.1:8000/login/facebook/callback',
     ],
 
-    'github' => [
-        'client_id' => env('GITHUB_CLIENT_ID'),
-        'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'http://example.com/callback-url',
+    'twitter' => [
+        'client_id' => env('TWITTER_CLIENT_ID'),
+        'client_secret' => env('TWITTER_CLIENT_SECRET'),
+        'redirect' => 'http://127.0.0.1:8000/login/twitter/callback',
     ],
 
 
