@@ -29,3 +29,4 @@
 
 <!-- template js -->
 <script src="{{asset('frontend/assets/js/tevily.js')}}"></script>
+@livewireScripts
