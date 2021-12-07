@@ -25,6 +25,8 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 Route::get('/galeri', [GalleryController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 
+Route::get('/cobadmin', [Admin\PagesController::class, 'index'])->name('index');
+
 // Google login
 Route::get('login/google', [SocialiteLoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('login/google/callback', [SocialiteLoginController::class, 'handleGoogleCallback'])->name('callback.google');
