@@ -1,30 +1,11 @@
-@extends('layouts.app')
-
+@extends('layouts.backend')
+@section('title', 'Dashboard admin')
+@section('dashboard-active', 'active')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<div class="row  mt-3">
 
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
+</div>
+<div class="row">
 
-                    <ul>
-                        <li>
-                            <a href="{{ route('admin.article.index') }}">Article</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.article.categories') }}">Article Categories</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection
