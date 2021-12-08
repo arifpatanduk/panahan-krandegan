@@ -45,12 +45,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
      * --------------------------------------------------------------
      */
     Route::middleware('role:Admin')
-        ->name('admin')
+        ->name('admin.')
         ->prefix('admin')
         ->group(function () {
 
             // route for admin only
             Route::get('/', [Admin\PagesController::class, 'index'])->name('index');
+
+            Route::name('article.')
+                ->prefix('article')
+                ->group(function () {
+                    Route::get('/', [Admin\PagesController::class, 'article'])->name('index');
+                    Route::get('/categories', [Admin\PagesController::class, 'categories'])->name('categories');
+                });
         });
 
 
@@ -60,7 +67,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
      * --------------------------------------------------------------
      */
     Route::middleware('role:User')
-        ->name('user')
+        ->name('user.')
         ->prefix('user')
         ->group(function () {
 
