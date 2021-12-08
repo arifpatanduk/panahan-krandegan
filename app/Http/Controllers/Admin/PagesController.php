@@ -13,26 +13,25 @@ class PagesController extends Controller
 
     public function __construct()
     {
-        $this->user = User::find(Auth::user());
+        $this->middleware(function ($request, $next) {
+            $this->user = Auth::user();
+
+            return $next($request);
+        });
     }
 
     public function index()
     {
-        return view('pages.admin.index', [
+        $this->active = 'dashboard';
+        return view('admin.index', [
             'user' => $this->user
         ]);
     }
 
     public function article()
     {
+        $this->active = 'article';
         return view('admin.article.index', [
-            'user' => $this->user
-        ]);
-    }
-
-    public function categories()
-    {
-        return view('admin.article.categories', [
             'user' => $this->user
         ]);
     }
