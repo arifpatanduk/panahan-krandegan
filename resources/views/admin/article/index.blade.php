@@ -1,28 +1,8 @@
-@extends('layouts.app')
-
+@extends('layouts.backend')
+@section('title', 'Manajemen Artikel')
+@section('article-active', 'active')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
+@livewire('admin.article.article', ['user' => $user], key(time() . $user->id))
 
-                    <ul>
-                        <li>
-                            <a href="{{ route('admin.article.index') }}">Article</a>
-                            <a href="{{ route('admin.article.categories') }}">Article Categories</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
