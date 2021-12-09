@@ -11,34 +11,24 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialiteLoginController extends Controller
 {
-    // Google login
-    public function redirectToGoogle()
+    // Socialite login
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
-    public function handleGoogleCallback()
+    // Socialite callback
+    public function handleCallback($provider)
     {
-        $user = Socialite::driver('google')->user();
+        $user = Socialite::driver($provider)->user();
 
-        $this->_registerOrLoginUser($user);
+        $this->_registerOrLoginUser($user, $provider);
 
         return redirect('/home');
     }
 
 
-    // Facebook login
-    public function redirectToFacebook()
-    {
-        return Socialite::driver('facebook')->redirect();
-    }
-
-    public function handleFacebookCallback()
-    {
-        $user = Socialite::driver('facebook')->user();
-    }
-
-    protected function _registerOrLoginUser($data)
+    protected function _registerOrLoginUser($data, $provider)
     {
         $user = User::where('email', $data->email)->first();
         if (!$user) {
@@ -47,6 +37,7 @@ class SocialiteLoginController extends Controller
             $user->email = $data->email;
             $user->email_verified_at = $user->email_verified_at != null ? $user->email_verified_at : Carbon::now();
             $user->provider_id = $data->id;
+            $user->oauth_type = $provider;
             $user->avatar = $data->avatar ? $data->avatar : 'https://ui-avatars.com/api/?name=' . $data->name;
             $user->save();
 

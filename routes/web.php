@@ -27,14 +27,11 @@ Route::get('/about', [AboutController::class, 'index']);
 
 Route::get('/cobadmin', [Admin\PagesController::class, 'index'])->name('index');
 
-// Google login
-Route::get('login/google', [SocialiteLoginController::class, 'redirectToGoogle'])->name('login.google');
-Route::get('login/google/callback', [SocialiteLoginController::class, 'handleGoogleCallback'])->name('callback.google');
+// Socialite login
+Route::get('login/{provider}', [SocialiteLoginController::class, 'redirectToProvider'])->name('login.provider');
 
-// Facebook login
-Route::get('login/facebook', [SocialiteLoginController::class, 'redirectToFacebook'])->name('login.Facebook');
-Route::get('login/facebook/callback', [SocialiteLoginController::class, 'handleFacebookCallback'])->name('callback.facebook');
-
+// Socialite callback
+Route::get('login/{provider}/callback', [SocialiteLoginController::class, 'handleCallback'])->name('callback.socialite');
 
 Auth::routes(['verify' => true]);
 
@@ -50,12 +47,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
      * --------------------------------------------------------------
      */
     Route::middleware('role:Admin')
-        ->name('admin')
+        ->name('admin.')
         ->prefix('admin')
         ->group(function () {
 
             // route for admin only
             Route::get('/', [Admin\PagesController::class, 'index'])->name('index');
+
+            Route::name('article.')
+                ->prefix('article')
+                ->group(function () {
+                    Route::get('/', [Admin\PagesController::class, 'article'])->name('index');
+                });
         });
 
 
@@ -65,7 +68,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
      * --------------------------------------------------------------
      */
     Route::middleware('role:User')
-        ->name('user')
+        ->name('user.')
         ->prefix('user')
         ->group(function () {
 
