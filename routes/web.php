@@ -59,6 +59,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 ->group(function () {
                     Route::get('/', [Admin\PagesController::class, 'article'])->name('index');
                 });
+            
+            Route::name('information.')
+                ->prefix('information')
+                ->group(function () {
+                    Route::get('/', [Admin\PagesController::class, 'information'])->name('index');
+                });
         });
 
 
