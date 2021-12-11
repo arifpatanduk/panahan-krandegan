@@ -48,7 +48,13 @@
                 <span class="menu-title">Artikel</span>
             </a>
         </li>
-
+        
+        <li class="nav-item @yield('information-active')">
+            <a class="nav-link" href="{{ route('admin.information.index') }}">
+                <i class="typcn typcn-info-large-outline menu-icon"></i>
+                <span class="menu-title">Informasi</span>
+            </a>
+        </li>
         @endif
 
         <li class="nav-item">
