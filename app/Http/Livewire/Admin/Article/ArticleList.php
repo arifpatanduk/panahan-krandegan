@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Article;
 use App\Models\Admin\Article\Article;
 use App\Models\Admin\Article\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -20,6 +21,8 @@ class ArticleList extends Component
     public $title;
     public $content;
     public $image;
+
+    public $new_image;
 
     public $category_id;
 
@@ -71,7 +74,8 @@ class ArticleList extends Component
         ]);
 
         // store image to storage
-        $image =  $this->image->storePublicly('article/image', 'local');
+        $image =  $this->image->storePublicly('public/article/image', 'local');
+        $image = Storage::disk('local')->url($image);
 
         // store to db
         Article::create([
@@ -89,8 +93,69 @@ class ArticleList extends Component
         $this->resetInputFields();
     }
 
+
+    // manage 
     public function manageArticle($article_id)
     {
         $this->manageMode = $article_id;
+
+        $article = Article::find($article_id);
+
+        $this->title = $article->title;
+        $this->content = $article->content;
+        $this->image = $article->image;
+        $this->category_id = $article->article_categories_id;
+    }
+
+    public function cancelManageArticle()
+    {
+        $this->manageMode = false;
+        $this->resetInputFields();
+    }
+
+    public function updateArticle($article_id)
+    {
+        $this->validate([
+            'category_id' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        if ($this->new_image) {
+            // dd($this->new_image);
+            $this->validate([
+                'new_image' => 'required|image'
+            ]);
+
+            // update image to storage
+            $image =  $this->new_image->storePublicly('public/article/image', 'local');
+            $image = Storage::disk('local')->url($image);
+
+            // delete old image
+            Storage::disk('local')->delete($this->image);
+        }
+
+
+        // update to db
+        $article = Article::find($article_id);
+        $article->title = $this->title;
+        $article->content = $this->content;
+        $article->image = $image;
+        $article->article_categories_id = $this->category_id;
+        $article->save();
+
+        $this->manageMode = false;
+        $this->emit('articleUpdated', 'Artikel berhasil diupdate!');
+
+        $this->resetInputFields();
+    }
+
+
+    // delete
+
+
+    public function deleteArticle()
+    {
+        # code...
     }
 }
