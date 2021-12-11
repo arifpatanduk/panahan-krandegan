@@ -35,4 +35,12 @@ class PagesController extends Controller
             'user' => $this->user
         ]);
     }
+
+    public function information()
+    {
+        $this->active = 'information';
+        return view('admin.information.index', [
+            'user' => $this->user
+        ]);
+    }
 }
