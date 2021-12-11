@@ -1,6 +1,6 @@
 <div>
-    <h4 class="card-title">Form Buat Artikel</h4>
-    <form class="forms-sample" wire:submit.prevent="storeArticle">
+    <h4 class="card-title">Kelola Artikel</h4>
+    <form class="forms-sample" wire:submit.prevent="updateArticle">
         <div class="form-group">
             <label for="exampleSelectGender">Kategori</label>
             <select wire:model="category_id" class="form-control @error('category_id') is-invalid @enderror">

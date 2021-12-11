@@ -25,7 +25,6 @@ class ArticleList extends Component
 
     // condition
     public $addMode = false;
-
     public $manageMode = false;
 
 
@@ -88,5 +87,10 @@ class ArticleList extends Component
         $this->emit('articleUpdated', 'Artikel berhasil ditambahkan!');
 
         $this->resetInputFields();
+    }
+
+    public function manageArticle($article_id)
+    {
+        $this->manageMode = $article_id;
     }
 }

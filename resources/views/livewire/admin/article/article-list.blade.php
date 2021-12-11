@@ -1,4 +1,9 @@
 <div>
+    @if ($manageMode)
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
+        @include('livewire.admin.article.edit-article')
+    </div>
+    @else
 
     @if (!$addMode)
     <button wire:click.prevent="addArticle" class="my-2 btn btn-sm btn-primary">
@@ -40,7 +45,8 @@
                         </div>
                     </td>
                     <td>
-                        <button class="btn btn-sm btn-warning mb-2">
+                        <button wire:click.prevent="manageArticle({{ $article->id }})"
+                            class="btn btn-sm btn-warning mb-2">
                             <span class="typcn typcn-cog"></span>
                             Kelola
                         </button>
@@ -50,4 +56,5 @@
             </tbody>
         </table>
     </div>
+    @endif
 </div>
