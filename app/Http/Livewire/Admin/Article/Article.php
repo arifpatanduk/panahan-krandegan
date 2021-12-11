@@ -11,6 +11,7 @@ class Article extends Component
 
     protected $listeners = [
         'categoryUpdated',
+        'articleUpdated',
         'cantDeleteCategory'
     ];
 
@@ -27,7 +28,12 @@ class Article extends Component
 
     public function categoryUpdated()
     {
-        # code...
+        // 
+    }
+
+    public function articleUpdated($message)
+    {
+        session()->flash('categoryUpdated', $message);
     }
 
     public function cantDeleteCategory()
