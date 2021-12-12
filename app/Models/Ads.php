@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class Ads extends Model
 {
     protected $fillable = [
-        'title',
-        'image',
+        'name',
         'desc',
+        'image',
+        'link',
     ];
 }

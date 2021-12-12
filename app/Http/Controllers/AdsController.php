@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gallery;
-use Illuminate\Http\Request;
+use App\Models\Ads;
+use App\Http\Requests\StoreAdsRequest;
+use App\Http\Requests\UpdateAdsRequest;
 
-class GalleryController extends Controller
+class AdsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return view('pages.gallery.index');
+        //
     }
 
     /**
@@ -30,10 +31,10 @@ class GalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreAdsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAdsRequest $request)
     {
         //
     }
@@ -41,10 +42,10 @@ class GalleryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\Ads  $ads
      * @return \Illuminate\Http\Response
      */
-    public function show(Gallery $gallery)
+    public function show(Ads $ads)
     {
         //
     }
@@ -52,10 +53,10 @@ class GalleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\Ads  $ads
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gallery $gallery)
+    public function edit(Ads $ads)
     {
         //
     }
@@ -63,11 +64,11 @@ class GalleryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Http\Requests\UpdateAdsRequest  $request
+     * @param  \App\Models\Ads  $ads
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gallery $gallery)
+    public function update(UpdateAdsRequest $request, Ads $ads)
     {
         //
     }
@@ -75,10 +76,10 @@ class GalleryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\Ads  $ads
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gallery $gallery)
+    public function destroy(Ads $ads)
     {
         //
     }
