@@ -36,6 +36,10 @@ Route::get('login/{provider}/callback', [SocialiteLoginController::class, 'handl
 Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'verified'])->group(function () {
+
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     // route for all roles

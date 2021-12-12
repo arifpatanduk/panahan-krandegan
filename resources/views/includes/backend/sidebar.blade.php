@@ -3,7 +3,7 @@
 
 
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <div class="d-flex sidebar-profile">
                 <div class="sidebar-profile-image">
                     <img src="{{ Auth::user()->avatar }}" alt="image">
@@ -19,7 +19,17 @@
                 </div>
             </div>
             <p class="sidebar-menu-title">Dash menu</p>
+        </li> --}}
+
+        {{-- menu for user --}}
+        @if ($user->hasRole('User'))
+        <li class="nav-item @yield('home-active')">
+            <a class="nav-link" href="{{ route('home') }}">
+                <i class="typcn typcn-device-desktop menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+            </a>
         </li>
+        @endif
 
 
         {{-- menu for admin --}}
@@ -28,7 +38,7 @@
         <li class="nav-item @yield('dashboard-active')">
             <a class="nav-link" href="{{ route('admin.index') }}">
                 <i class="typcn typcn-device-desktop menu-icon"></i>
-                <span class="menu-title">Dashboard</span>
+                <span class="menu-title">Dashboard Admin</span>
             </a>
         </li>
 
