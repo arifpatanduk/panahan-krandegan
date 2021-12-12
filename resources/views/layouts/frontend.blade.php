@@ -1,15 +1,15 @@
-@include('includes.header')
+@include('includes.frontend.header')
 <body>
     <div class="preloader">
         <img class="preloader__image" width="60" src="{{asset('frontend/assets/images/loader.png')}}" alt="" />
     </div>
     <!-- /.preloader -->
     <div class="page-wrapper">
-        @include('includes.topbar')
+        @include('includes.frontend.topbar')
         
         @yield('content')
 
-        @include('includes.footer')
+        @include('includes.frontend.footer')
 
 
     </div><!-- /.page-wrapper -->
@@ -70,7 +70,7 @@
         <!-- /.search-popup__content -->
     </div>
     <!-- /.search-popup -->
-    @include('includes.scripts')
+    @include('includes.frontend.scripts')
 </body>
 
 </html>
