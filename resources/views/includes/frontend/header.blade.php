@@ -10,5 +10,5 @@
     <link rel="icon" type="image/png" href="{{asset('frontend/assets/images/resources/logo.png')}}" />
     <link rel="manifest" href="{{asset('frontend/assets/images/favicons/site.webmanifest')}}" />
     <meta name="description" content="@yield('title')" />
-    @include('includes.styles')
+    @include('includes.frontend.styles')
 </head>

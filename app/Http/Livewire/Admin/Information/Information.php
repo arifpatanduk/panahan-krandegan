@@ -11,7 +11,8 @@ class Information extends Component
     protected $listeners = [
         'informationTypeStored',
         'informationTypeUpdated',
-        'cantDeleteType'
+        'cantDeleteType',
+        'informationStored'
 
     ];
     
@@ -35,5 +36,10 @@ class Information extends Component
     public function cantDeleteType()
     {
         session()->flash('cantDeleteType', "Tidak bisa menghapus tipe informasi yang sedang digunakan");
+    }
+
+    public function informationStored()
+    {
+        session()->flash('informationStored', 'Informasi berhasil ditambahkan');
     }
 }

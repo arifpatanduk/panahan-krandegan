@@ -6,7 +6,14 @@
                 <div class="d-flex flex-wrap justify-content-between">
                     <h4 class="card-title mb-3">Daftar Informasi</h4>
                 </div>
-
+                @if (session()->has('informationStored'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{session('informationStored')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
                 @livewire('admin.information.information-list', key(time() . $user->id))
 
             </div>

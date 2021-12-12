@@ -1,8 +1,12 @@
 <div>
-    <button class="my-2 btn btn-sm btn-primary">
-        <span class="typcn typcn-document-add"></span>
-        Buat Informasi
-    </button>
+    @if($addInformation==true)
+        @include('livewire.admin.information.create-information')
+    @else
+        <button class="my-2 btn btn-sm btn-primary" wire:click.prevent="createInformation">
+            <span class="typcn typcn-document-add"></span>
+            Buat Informasi
+        </button>
+    @endif
 
     <div class="table-responsive">
         <table class="table">
@@ -13,14 +17,16 @@
                 </tr>
             </thead>
             <tbody>
+                @if($informations->count() != 0)
+                @foreach ($informations as $information)
                 <tr>
                     <td>
-                        <div class="font-weight-bold mb-1">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci ipsum dicta
-                            laboriosam, placeat corrupti nulla
+                        <h5 class="font-weight-bold">{{$information->name}}</h5>
+                        <div class=" mb-1">
+                            {{$information->desc}} 
                         </div>
                         <div>
-                            12-10-2021
+                            {{$information->updated_at->format('d F Y')}}
                         </div>
                     </td>
                     <td>
@@ -33,6 +39,12 @@
                         </button>
                     </td>
                 </tr>
+                @endforeach
+                @else
+                <tr>
+                    <td>Tidak ada data informasi</td>
+                </tr>
+                @endif
             </tbody>
         </table>
     </div>

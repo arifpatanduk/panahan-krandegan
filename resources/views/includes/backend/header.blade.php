@@ -9,6 +9,6 @@
   <link rel="stylesheet" href="{{asset('backend/assets/vendors/css/vendor.bundle.base.css')}}">
   <link rel="stylesheet" href="{{asset('backend/assets/css/vertical-layout-light/style.css')}}">
   <link rel="shortcut icon" href="{{asset('frontend/assets/images/resources/logo.png')}}" />
-
+  @stack('addon-styles')
   @livewireStyles
 </head>
