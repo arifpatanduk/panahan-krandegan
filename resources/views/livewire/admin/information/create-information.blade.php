@@ -24,6 +24,7 @@
             </div>
             <div class="form-group">
                 <label for="desc">Deskripsi</label>
+                {{-- <x-forms.tinymce-editor/> --}}
                 <textarea class="form-control @error('desc') is-invalid @enderror" wire:model="desc" id="information_desc" cols="30" rows="10" placeholder="Masukkan deskripsi informasi"></textarea>
                 @error('desc')
                   <span class="text-danger error"><small>{{ $message }}</small></span>
@@ -44,21 +45,3 @@
         </div>
     </div>    
 </div>
-
-{{-- @push('addon-styles')
-    <link rel="stylesheet" href="{{asset('backend/assets/vendors/summernote/summernote.min.css')}}">
-    <link rel="stylesheet" href="{{asset('backend/assets/vendors/summernote/summernote-bs4.min.css')}}">
-@endpush
-@push('addon-scripts')
-    <script src="{{asset('backend/assets/vendors/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('backend/assets/vendors/summernote/summernote.min.js')}}"></script>
-    <script src="{{asset('backend/assets/vendors/summernote/summernote-bs4.min.js')}}"></script>
-
-    <script>
-      $(window).on('information_desc', (e) => {
-          $('#information_desc').summernote();
-          console.log('hoo');
-       });
-    </script>
-    
-@endpush --}}

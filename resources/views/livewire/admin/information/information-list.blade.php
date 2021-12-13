@@ -1,13 +1,16 @@
 <div>
     @if($addInformation==true)
+        <p>hello</p>
         @include('livewire.admin.information.create-information')
     @else
+    
         <button class="my-2 btn btn-sm btn-primary" wire:click.prevent="createInformation">
             <span class="typcn typcn-document-add"></span>
             Buat Informasi
         </button>
+        
     @endif
-
+    
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -30,12 +33,20 @@
                         </div>
                     </td>
                     <td>
-                        <button class="btn btn-xs btn-warning mb-2">
+                        <button class="btn btn-xs btn-warning mb-2" wire:click.prevent="editInformation({{$information->id}})">
                             <span class="typcn typcn-pencil"></span>
                             Edit
                         </button>
-                        <button class="btn btn-xs btn-danger mb-2">
-                            <span class="typcn typcn-trash"></span> Hapus
+                        <button class="btn btn-xs btn-danger mb-2" wire:click.prevent="deleteInformation({{$information->id}})">
+                            <div wire:target="deleteInformation({{$information->id}})" wire:loading >
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
+                                  Menghapus
+                                </span>
+                              </div>
+                              <div wire:target="deleteInformation({{$information->id}})" wire:loading.remove>
+                                <span class="typcn typcn-trash"></span> Hapus
+                              </div>
+                            
                         </button>
                     </td>
                 </tr>
