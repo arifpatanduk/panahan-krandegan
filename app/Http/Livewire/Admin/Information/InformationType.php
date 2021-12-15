@@ -118,7 +118,7 @@ class InformationType extends Component
             $this->emit('cantDeleteType');
         } else {
             InformationInformationType::destroy($type_id);
-            $this->emit('informationTypeUpdated'); // refresh
+            $this->emit('informationTypeDeleted'); // refresh
         }
     }
 }

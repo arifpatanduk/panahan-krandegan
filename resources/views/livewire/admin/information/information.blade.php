@@ -13,6 +13,13 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                @elseif(session()->has('informationDeleted'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{session('informationDeleted')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 @endif
                 @livewire('admin.information.information-list', key(time() . $user->id))
 

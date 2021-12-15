@@ -6,5 +6,6 @@
 <script src="{{asset('backend/assets/js/todolist.js')}}"></script>
 <script src="{{asset('backend/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
 <script src="{{asset('backend/assets/js/dashboard.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 @stack('addon-scripts')
 @livewireScripts

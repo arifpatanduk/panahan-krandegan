@@ -23,7 +23,7 @@ class PagesController extends Controller
     public function index()
     {
         $this->active = 'dashboard';
-        return view('admin.index', [
+        return view('pages.admin.index', [
             'user' => $this->user
         ]);
     }
@@ -31,7 +31,7 @@ class PagesController extends Controller
     public function article()
     {
         $this->active = 'article';
-        return view('admin.article.index', [
+        return view('pages.admin.article.index', [
             'user' => $this->user
         ]);
     }
@@ -39,7 +39,7 @@ class PagesController extends Controller
     public function information()
     {
         $this->active = 'information';
-        return view('admin.information.index', [
+        return view('pages.admin.information.index', [
             'user' => $this->user
         ]);
     }

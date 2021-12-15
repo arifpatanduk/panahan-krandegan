@@ -10,7 +10,7 @@ class InformationList extends Component
 {
 
     //variable
-    public $name, $type, $desc;
+    public $name, $type, $desc, $information_id=null;
     public $informations;
 
     //conditional
@@ -29,8 +29,19 @@ class InformationList extends Component
         $this->addInformation = true;
     }
 
+    public function editInformation($information_id)
+    {
+        $information_data = Information::find($information_id);
+        $this->information_id = $information_id;
+        $this->name = $information_data->name;
+        $this->type = $information_data->information_type_id;
+        $this->desc = $information_data->desc;
+        $this->addInformation = true;
+    }
+
     public function cancelCreateInformation()
     {
+        $this->resetInputFields();
         $this->addInformation = false;
     }
 
@@ -55,16 +66,25 @@ class InformationList extends Component
         ]);
 
 
-        Information::create([
-            'name' => $this->name,
-            'information_type_id' => $this->type,
-            'desc' => $this->desc,
-            'total_rating' => 0
-        ]);
+        Information::updateOrCreate(
+            ['id'=>$this->information_id],
+            [
+                'name' => $this->name,
+                'information_type_id' => $this->type,
+                'desc' => $this->desc,
+                'total_rating' => 0
+            ]
+        );
 
         $this->addInformation = false;
 
         $this->emit('informationStored');
         $this->resetInputFields();
+    }
+
+    public function deleteInformation($information_id)
+    {
+        Information::destroy($information_id);
+        $this->emit('informationDeleted');
     }
 }
