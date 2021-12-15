@@ -3,18 +3,31 @@
 namespace App\Http\Livewire\Admin\Information;
 
 use App\Models\Admin\Information\Information;
+use App\Models\Admin\Information\InformationImages;
 use App\Models\Admin\Information\InformationType;
+use Carbon\Carbon;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class InformationList extends Component
 {
+
+    use WithFileUploads;
 
     //variable
     public $name, $type, $desc, $information_id=null;
     public $informations;
 
     //conditional
+    public $editImage = false;
     public $addInformation = false;
+
+    protected $listeners =
+    [
+        'cancelEditImage',
+        'imageStored',
+        'imageDeleted'
+    ];
 
     public function resetInputFields()
     {
@@ -27,6 +40,17 @@ class InformationList extends Component
     public function createInformation()
     {
         $this->addInformation = true;
+    }
+
+    public function editImage($information_id)
+    {
+        $this->information_id = $information_id;
+        $this->editImage = true;
+    }
+
+    public function cancelEditImage()
+    {
+        $this->editImage = false;
     }
 
     public function editInformation($information_id)
@@ -62,11 +86,11 @@ class InformationList extends Component
         $this->validate([
             'name'=> 'required',
             'type'=> 'required',
-            'desc'=> 'required'
+            'desc'=> 'required',
         ]);
 
 
-        Information::updateOrCreate(
+        $information = Information::updateOrCreate(
             ['id'=>$this->information_id],
             [
                 'name' => $this->name,
@@ -86,5 +110,16 @@ class InformationList extends Component
     {
         Information::destroy($information_id);
         $this->emit('informationDeleted');
+    }
+
+
+    public function imageStored()
+    {
+        session()->flash('imageStored', 'Gambar berhasil ditambahkan');
+    }
+
+    public function imageDeleted()
+    {
+        session()->flash('imageDeleted', 'Gambar berhasil dihapus');
     }
 }

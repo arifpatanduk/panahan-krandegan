@@ -43,4 +43,12 @@ class PagesController extends Controller
             'user' => $this->user
         ]);
     }
+
+    public function wahana()
+    {
+        $this->active = 'wahana';
+        return view('pages.admin.wahana.index', [
+            'user' => $this->user
+        ]);
+    }
 }

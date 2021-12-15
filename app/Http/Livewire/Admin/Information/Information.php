@@ -14,8 +14,7 @@ class Information extends Component
         'informationTypeDeleted',
         'cantDeleteType',
         'informationStored',
-        'informationDeleted'
-
+        'informationDeleted',
     ];
     
     public function render()
