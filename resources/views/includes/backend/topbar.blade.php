@@ -70,7 +70,7 @@
             <i class="typcn typcn-cog text-primary"></i>
             Profil
           </a>
-          <a class="dropdown-item" href="{{ route('logout') }}">
+          <a class="dropdown-item" href="{{ route('user.logout') }}">
             <i class="typcn typcn-power text-primary"></i>
             Logout
           </a>
