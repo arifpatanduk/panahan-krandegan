@@ -51,4 +51,20 @@ class PagesController extends Controller
             'user' => $this->user
         ]);
     }
+
+    public function gallery()
+    {
+        $this->active = 'gallery';
+        return view('admin.gallery.index', [
+            'user' => $this->user
+        ]);
+    }
+
+    public function ads()
+    {
+        $this->active = 'ads';
+        return view('admin.ads.index', [
+            'user' => $this->user
+        ]);
+    }
 }

@@ -52,10 +52,10 @@
                             <ul class="main-menu__list">
                                 <li class="@yield('beranda-active')"><a href="">Beranda</a></li>
                                 <li class="dropdown @yield('destination-active')">
-                                    <a href="">Destinations</a>
+                                    <a href="/about">Destinations</a>
                                     <ul>
                                         <li><a href="/about">Desa Krandegan</a></li>
-                                        <li><a href="">Kawasan Wisata Gandewalana</a></li>
+                                        <li><a href="/about">Kawasan Wisata Gandewalana</a></li>
                                     </ul>
                                 </li>
                                 <li class="@yield('roadmap-active')"><a href="">Roadmap</a></li>
@@ -69,7 +69,7 @@
                                         <li><a href="">Promo</a></li>
                                     </ul>
                                 </li>
-                                <li class="@yield('galeri-active')"><a href="">Galeri</a></li>
+                                <li class="@yield('galeri-active')"><a href="/galeri">Galeri</a></li>
                                 <li class="@yield('berita-active')"><a href="">Berita</a></li>
                             </ul>
                         </div>
