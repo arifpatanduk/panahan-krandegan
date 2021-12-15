@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Intervention\Image\Facades\Image;
 
 class ArticleList extends Component
 {
@@ -25,6 +26,14 @@ class ArticleList extends Component
     public $new_image;
 
     public $category_id;
+
+
+    // image property
+    public $x;
+    public $y;
+    public $width;
+    public $height;
+
 
     // condition
     public $addMode = false;
@@ -73,9 +82,26 @@ class ArticleList extends Component
             'image' => 'required|image',
         ]);
 
+
+        // convert double to int
+        $width = (int) round($this->width);
+        $height = (int) round($this->height);
+        $x = (int) round($this->x);
+        $y = (int) round($this->y);
+
+        $croppedImage = Image::make($this->image->getRealPath());
+        $croppedImage->crop($width, $height, $x, $y);
+        $croppedImage->save();
+
         // store image to storage
-        $image =  $this->image->storePublicly('public/article/image', 'local');
-        $image = Storage::disk('local')->url($image);
+        $directory = 'public/article/image';
+        $filename =  time() . '_' . Auth::user()->id  . '_' . $this->image->getClientOriginalName();
+        $path = $directory . $filename;
+        $image = Storage::disk('local')->put($path, $croppedImage, 'public');
+        $image = Storage::disk('local')->url($path);
+
+        // $image =  $croppedImage->storePublicly('public/article/image', 'local');
+        // $image = Storage::disk('local')->url($image);
 
         // store to db
         Article::create([
