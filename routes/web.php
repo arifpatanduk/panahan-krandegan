@@ -69,6 +69,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 ->group(function () {
                     Route::get('/', [Admin\PagesController::class, 'information'])->name('index');
                 });
+
+            Route::name('gallery.')
+                ->prefix('gallery')
+                ->group(function () {
+                    Route::get('/', [Admin\PagesController::class, 'gallery'])->name('index');
+                });
+
+            Route::name('ads.')
+                ->prefix('ads')
+                ->group(function () {
+                    Route::get('/', [Admin\PagesController::class, 'ads'])->name('index');
+                });
         });
 
 
