@@ -21,6 +21,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Lbc basics
+App\Lbc\LaravelBootstrapComponents::init();
+
+// abc.com/lbc if you want to have the docs for it
+App\Lbc\LaravelBootstrapComponents::initDocs();
+
+
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 Route::get('/galeri', [GalleryController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
@@ -68,6 +75,24 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 ->prefix('information')
                 ->group(function () {
                     Route::get('/', [Admin\PagesController::class, 'information'])->name('index');
+                });
+
+            Route::name('wahana.')
+                ->prefix('wahana')
+                ->group(function () {
+                    Route::get('/', [Admin\PagesController::class, 'wahana'])->name('index');
+                });
+            
+            Route::name('gallery.')
+                ->prefix('gallery')
+                ->group(function () {
+                    Route::get('/', [Admin\PagesController::class, 'gallery'])->name('index');
+                });
+
+            Route::name('ads.')
+                ->prefix('ads')
+                ->group(function () {
+                    Route::get('/', [Admin\PagesController::class, 'ads'])->name('index');
                 });
         });
 

@@ -6,7 +6,15 @@
                 <div class="d-flex flex-wrap justify-content-between">
                     <h4 class="card-title mb-3">Daftar Informasi</h4>
                 </div>
-
+                @if (session()->has('informationStored'))
+                <x-alert type="success" :dismissible="'true'">
+                    {{session('informationStored')}}
+                </x-alert>
+                @elseif(session()->has('informationDeleted'))
+                <x-alert type="success" :dismissible="'true'">
+                    {{session('informationDeleted')}}
+                </x-alert>
+                @endif
                 @livewire('admin.information.information-list', key(time() . $user->id))
 
             </div>

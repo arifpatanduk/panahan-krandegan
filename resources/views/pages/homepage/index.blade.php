@@ -287,11 +287,11 @@
     <div class="why-choose__container">
         <div class="why-choose__left">
             <div class="why-choose__left-bg"
-                style="background-image: url({{asset('frontend/assets/images/backgrounds/why-choose-left-bg.jpg')}})">
+                style="background-image: url({{asset('frontend/assets/images/backgrounds/krandegan.jpg')}})">
             </div>
-            <div class="why-choose__toggle">
+            {{-- <div class="why-choose__toggle">
                 <p>Trips <br> & tours</p>
-            </div>
+            </div> --}}
         </div>
         <div class="why-choose__right">
             <div class="why-choose__right-map"
@@ -312,8 +312,8 @@
                         </div>
                         <div class="text">
                             <h4>Desa Krandegan</h4>
-                            <p>Lorem ipsum is simply free text dolor sit but the majority have suffered amet,
-                                consectetur notted.</p>
+                            <p>Desa Krandegan yang terletak di Kec. Bayan Purworejo menjadi Desa Mandiri pada
+                                awal 2021 berkat dukungan aplikasi Early Warning System Banjir di Sungai Jali</p>
                         </div>
                     </li>
                     <li>

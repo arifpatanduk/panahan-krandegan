@@ -55,6 +55,27 @@
                 <span class="menu-title">Informasi</span>
             </a>
         </li>
+
+        <li class="nav-item @yield('wahana-active')">
+            <a class="nav-link" href="{{ route('admin.wahana.index') }}">
+                <i class="typcn typcn-puzzle-outline menu-icon"></i>
+                <span class="menu-title">Wahana</span>
+            </a>
+        </li>
+        
+        <li class="nav-item @yield('gallery-active')">
+            <a class="nav-link" href="{{ route('admin.gallery.index') }}">
+                <i class="typcn typcn-info-large-outline menu-icon"></i>
+                <span class="menu-title">Galeri</span>
+            </a>
+        </li>
+
+        <li class="nav-item @yield('ads-active')">
+            <a class="nav-link" href="{{ route('admin.ads.index') }}">
+                <i class="typcn typcn-info-large-outline menu-icon"></i>
+                <span class="menu-title">Iklan</span>
+            </a>
+        </li>
         @endif
 
         <li class="nav-item">
