@@ -28,7 +28,7 @@ App\Lbc\LaravelBootstrapComponents::init();
 App\Lbc\LaravelBootstrapComponents::initDocs();
 
 
-Route::get('/', [HomepageController::class, 'index'])->name('homepage');
+Route::get('/', [HomepageController::class, 'index']);
 Route::get('/galeri', [GalleryController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 
@@ -82,7 +82,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 ->group(function () {
                     Route::get('/', [Admin\PagesController::class, 'wahana'])->name('index');
                 });
-            
+
             Route::name('gallery.')
                 ->prefix('gallery')
                 ->group(function () {
