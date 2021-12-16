@@ -489,7 +489,7 @@
                     <div class="news-one__single">
                         <div class="news-one__img">
                             <img src="{{ $article->image }}" alt="">
-                            <a href="news-details.html">
+                            <a href="{{ route('articles.show', $article->slug) }}">
                                 <span class="news-one__plus"></span>
                             </a>
                             <div class="news-one__date">
@@ -504,13 +504,17 @@
                         </div>
                         <div class="news-one__content">
                             <ul class="list-unstyled news-one__meta">
-                                <li><a href="news-details.html"><i class="far fa-user-circle"></i>{{
+                                <li><a href="{{ route('articles.show', $article->slug) }}"><i
+                                            class="far fa-user-circle"></i>{{
                                         $article->user->name }}</a></li>
-                                <li><a href="news-details.html"><i class="far fa-comments"></i>2 Comments</a>
+                                <li><a href="{{ route('articles.show', $article->slug) }}"><i
+                                            class="far fa-comments"></i>2 Comments</a>
                                 </li>
                             </ul>
                             <h3 class="news-one__title">
-                                <a href="news-details.html">{{ $article->title }}</a>
+                                <a href="{{ route('articles.show', $article->slug) }}">
+                                    {{ \Illuminate\Support\Str::limit($article->title, 45, $end='...') }}
+                                </a>
                             </h3>
                         </div>
                     </div>

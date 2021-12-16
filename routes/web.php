@@ -33,7 +33,7 @@ Route::get('/', [HomepageController::class, 'index']);
 Route::get('/galeri', [GalleryController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 
-Route::get('/cobadmin', [Admin\PagesController::class, 'index'])->name('index');
+Route::get('/roadmap', [HomepageController::class, 'roadmap'])->name('roadmap');
 
 // Socialite login
 Route::get('login/{provider}', [SocialiteLoginController::class, 'redirectToProvider'])->name('login.provider');

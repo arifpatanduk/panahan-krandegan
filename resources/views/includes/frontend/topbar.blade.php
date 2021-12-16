@@ -1,5 +1,5 @@
 <header class="main-header clearfix">
-    <div class="main-header__top">
+    {{-- <div class="main-header__top">
         <div class="container">
             <div class="main-header__top-inner clearfix">
                 <div class="main-header__top-left">
@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <nav class="main-menu clearfix">
         <div class="main-menu-wrapper clearfix">
             <div class="container clearfix">
@@ -58,7 +58,7 @@
                                         <li><a href="/about">Kawasan Wisata Gandewalana</a></li>
                                     </ul>
                                 </li>
-                                <li class="@yield('roadmap-active')"><a href="">Roadmap</a></li>
+                                <li class="@yield('roadmap-active')"><a href="{{ route('roadmap') }}">Roadmap</a></li>
                                 <li class="dropdown @yield('informasi-active')">
                                     <a href="">Informasi</a>
                                     <ul>

@@ -7,10 +7,12 @@
                     <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                         <div class="footer-widget__column footer-widget__about">
                             <div class="footer-widget__about-logo">
-                                {{-- <a href="{{route('homepage')}}"><img src="{{asset('frontend/assets/images/resources/footer-logo.png')}}"alt=""></a> --}}
+                                {{-- <a href="{{route('homepage')}}"><img
+                                        src="{{asset('frontend/assets/images/resources/footer-logo.png')}}" alt=""></a>
+                                --}}
                             </div>
-                            <p class="footer-widget__about-text">Welcome to our Trip and Tour Agency. Lorem
-                                simply text amet cing elit.</p>
+                            <p class="footer-widget__about-text">Selamat Datang di Krandegan Desa Wahana Kampung Dolanan
+                                Panah</p>
                             <ul class="footer-widget__about-contact list-unstyled">
                                 <li>
                                     <div class="icon">
@@ -25,7 +27,7 @@
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                     <div class="text">
-                                        <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                                        <a href="mailto:needhelp@company.com">admin@gandewalana.id</a>
                                     </div>
                                 </li>
                                 <li>
@@ -33,7 +35,7 @@
                                         <i class="fas fa-map-marker-alt"></i>
                                     </div>
                                     <div class="text">
-                                        <p>666 road, broklyn street new york</p>
+                                        <p>Krandegan, Bayan, Purworejo, Jawa Tengah</p>
                                     </div>
                                 </li>
                             </ul>
@@ -41,46 +43,49 @@
                     </div>
                     <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
                         <div class="footer-widget__column footer-widget__company clearfix">
-                            <h3 class="footer-widget__title">Company</h3>
+                            <h3 class="footer-widget__title">Gandewalana</h3>
                             <ul class="footer-widget__company-list list-unstyled">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="#">Community Blog</a></li>
-                                <li><a href="#">Rewards</a></li>
-                                <li><a href="#">Work with Us</a></li>
-                                <li><a href="#">Meet the Team</a></li>
+                                <li><a href="/about">Destinasi</a></li>
+                                <li><a href="{{ route('roadmap') }}">Roadmap</a></li>
+                                <li><a href="#">Informasi</a></li>
+                                <li><a href="/galeri">Galeri</a></li>
+                                <li><a href="{{ route('articles.index') }}">Berita</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
                         <div class="footer-widget__column footer-widget__explore">
-                            <h3 class="footer-widget__title">Explore</h3>
+                            <h3 class="footer-widget__title">Situs Terkait</h3>
                             <ul class="list-unstyled footer-widget__explore-list">
-                                <li><a href="#">Account</a></li>
-                                <li><a href="#">Legal</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Affilitate Program</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="https://krandeganbayan.id/">Krandegan</a></li>
+                                <li><a href="https://uns.ac.id/id/">UNS</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                         <div class="footer-widget__column footer-widget__newsletter">
-                            <h3 class="footer-widget__title">Newsletter</h3>
-                            <form class="footer-widget__newsletter-form mc-form"
-                                data-url="https://xyz.us18.list-manage.com/subscribe/post?u=20e91746ef818cd941998c598&id=cc0ee8140e">
-                                <div class="footer-widget__newsletter-input-box">
-                                    <input type="email" placeholder="Email address" name="EMAIL">
-                                    <button type="submit"
-                                        class="footer-widget__newsletter-btn">Subscribe</button>
-                                </div>
-                            </form>
-                            <div class="mc-form__response text-center"></div><!-- /.mc-form__response -->
-                            <div class="footer-widget__newsletter-bottom">
-                                <div class="footer-widget__newsletter-bottom-icon">
-                                    <i class="fa fa-check"></i>
-                                </div>
-                                <div class="footer-widget__newsletter-bottom-text">
-                                    <p>I agree to all terms and policies</p>
+                            <h3 class="footer-widget__title">Lokasi</h3>
+                            <div class="mapouter">
+                                <div class="gmap_canvas"><iframe width="400" height="250" id="gmap_canvas"
+                                        src="https://maps.google.com/maps?q=Krandegan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                                        href="https://www.whatismyip-address.com/divi-discount/"></a><br>
+                                    <style>
+                                        .mapouter {
+                                            position: relative;
+                                            text-align: right;
+                                            height: 250px;
+                                            width: 400px;
+                                        }
+                                    </style><a href="https://www.embedgooglemap.net">google map website widget</a>
+                                    <style>
+                                        .gmap_canvas {
+                                            overflow: hidden;
+                                            background: none !important;
+                                            height: 250px;
+                                            width: 400px;
+                                        }
+                                    </style>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +108,7 @@
                             </div>
                         </div>
                         <div class="site-footer__bottom-right">
-                            <p>@ All Copyright 2021, <a href="#">Bracket Web</a></p>
+                            <p>@ All Copyright {{ date('Y') }}, Gandewalana</p>
                         </div>
                         <div class="site-footer__bottom-left-arrow">
                             <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><span
