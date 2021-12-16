@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +33,7 @@ Route::get('/', [HomepageController::class, 'index']);
 Route::get('/galeri', [GalleryController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 
-Route::get('/cobadmin', [Admin\PagesController::class, 'index'])->name('index');
+Route::get('/roadmap', [HomepageController::class, 'roadmap'])->name('roadmap');
 
 // Socialite login
 Route::get('login/{provider}', [SocialiteLoginController::class, 'redirectToProvider'])->name('login.provider');
@@ -41,6 +42,15 @@ Route::get('login/{provider}', [SocialiteLoginController::class, 'redirectToProv
 Route::get('login/{provider}/callback', [SocialiteLoginController::class, 'handleCallback'])->name('callback.socialite');
 
 Auth::routes(['verify' => true]);
+
+
+// articles frontend
+Route::name('articles.')->prefix('articles')->group(function () {
+    Route::get('/', [ArticlesController::class, 'index'])->name('index');
+    Route::get('/{slug}', [ArticlesController::class, 'show'])->name('show');
+});
+
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

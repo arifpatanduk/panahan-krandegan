@@ -8,13 +8,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class ArticleList extends Component
 {
     use WithFileUploads;
 
     // existing data
-    public $articles;
+    // public $articles;
     public $categories;
 
     // collect data
@@ -26,6 +28,14 @@ class ArticleList extends Component
 
     public $category_id;
 
+
+    // image property
+    public $x;
+    public $y;
+    public $width;
+    public $height;
+
+
     // condition
     public $addMode = false;
     public $manageMode = false;
@@ -34,12 +44,14 @@ class ArticleList extends Component
     public function mount()
     {
         $this->categories = Category::all();
-        $this->articles = Article::all();
+        // $this->articles = Article::orderBy('id', 'desc')->get();
     }
 
     public function render()
     {
-        return view('livewire.admin.article.article-list');
+        return view('livewire.admin.article.article-list', [
+            'articles' => Article::latest()->paginate(10)
+        ]);
     }
 
     private function resetInputFields()
@@ -68,14 +80,30 @@ class ArticleList extends Component
     {
         $this->validate([
             'category_id' => 'required',
-            'title' => 'required',
+            'title' => 'required|unique:articles',
             'content' => 'required',
             'image' => 'required|image',
         ]);
 
+
+        // convert double to int
+        $width = (int) round($this->width);
+        $height = (int) round($this->height);
+        $x = (int) round($this->x);
+        $y = (int) round($this->y);
+
+        $croppedImage = Image::make($this->image->getRealPath());
+        $croppedImage->crop($width, $height, $x, $y);
+        $croppedImage->save();
+
         // store image to storage
-        $image =  $this->image->storePublicly('public/article/image', 'local');
-        $image = Storage::disk('local')->url($image);
+        $directory = 'public/article/image';
+        $filename =  time() . '_' . Auth::user()->id  . '_' . $this->image->getClientOriginalName();
+        $path = $directory . $filename;
+        $image = Storage::disk('local')->put($path, $croppedImage, 'public');
+        $image = Storage::disk('local')->url($path);
+
+        $slug = Str::slug($this->title);
 
         // store to db
         Article::create([
@@ -85,6 +113,7 @@ class ArticleList extends Component
             'content' => $this->content,
             'image' => $image,
             'status' => '1',
+            'slug' => $slug,
         ]);
 
         $this->addMode = false;
@@ -127,18 +156,34 @@ class ArticleList extends Component
                 'new_image' => 'required|image'
             ]);
 
+
+            // convert double to int
+            $width = (int) round($this->width);
+            $height = (int) round($this->height);
+            $x = (int) round($this->x);
+            $y = (int) round($this->y);
+
+            $croppedImage = Image::make($this->new_image->getRealPath());
+            $croppedImage->crop($width, $height, $x, $y);
+            $croppedImage->save();
+
             // update image to storage
-            $image =  $this->new_image->storePublicly('public/article/image', 'local');
-            $image = Storage::disk('local')->url($image);
+            $directory = 'public/article/image';
+            $filename =  time() . '_' . Auth::user()->id  . '_' . $this->new_image->getClientOriginalName();
+            $path = $directory . $filename;
+            $image = Storage::disk('local')->put($path, $croppedImage, 'public');
+            $image = Storage::disk('local')->url($path);
 
             // delete old image
             Storage::disk('local')->delete($this->image);
         }
 
+        $slug = Str::slug($this->title);
 
         // update to db
         $article = Article::find($article_id);
         $article->title = $this->title;
+        $article->slug = $slug;
         $article->content = $this->content;
         $article->image = $image;
         $article->article_categories_id = $this->category_id;

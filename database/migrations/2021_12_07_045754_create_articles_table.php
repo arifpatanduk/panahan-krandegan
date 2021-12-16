@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('article_categories_id');
             $table->unsignedBigInteger('admin_id');
             $table->text('title');
+            $table->text('slug');
             $table->longText('content');
             $table->string('image');
             $table->string('status');

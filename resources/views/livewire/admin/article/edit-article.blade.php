@@ -24,24 +24,65 @@
             @enderror
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label>Gambar</label>
-            <div class="input-group mb-3">
+            <div class="input-group mb-2">
                 <input wire:model="new_image" type="file" accept="image/*"
                     class="form-control @error('new_image') is-invalid @enderror" id="inputGroupFile02">
             </div>
+            <small class="text-muted">Image max. 3 MB </small>
 
             @error('new_image')
             <span class="text-danger error"><small>{{ $message }}</small></span>
             @enderror
 
-            <img src="{{ asset($image) }}" class="img-fluid" alt="...">
+            <div wire:loading wire:target="new_image">
+                <div class="card-body">
+                    <div>
+                        <div class="spinner-grow spinner-grow-sm" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        Uploading...
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="mt-2">
+            @if ($new_image)
+            <div wire:ignore x-data="{
+                setUp() {
+                    console.log('test');
+                    const cropper = new Cropper(document.getElementById('image'), {
+                        aspectRatio: 4/3,
+                        autoCropArea: 1,
+                        viewMode: 1,
+                        crop () {
+                            @this.set('x', event.detail.x)
+                            @this.set('y', event.detail.y)
+                            @this.set('width', event.detail.width)
+                            @this.set('height', event.detail.height)
+                        }
+                    })
+                }
+            }" x-init="setUp">
+
+                <img id="image" src="{{ $new_image->temporaryUrl() }}" alt="thumbnail preview"
+                    class="rounded-3 img-fluid img-thumbnail" style="width: 100%; max-width:100%">
+            </div>
+
+            @elseif ($image)
+            <img src="{{ $image }}" alt="thumbnail preview" class="rounded-3 img-fluid img-thumbnail"
+                style="width: 100%; max-width:100%">
+            @endif
+        </div>
+
+
 
         <div class="form-group">
             <label for="exampleTextarea1">Konten</label>
-            <textarea wire:model="content" class="form-control @error('content') is-invalid @enderror"
-                rows="4"></textarea>
+            <textarea wire:model="content" class="form-control @error('content') is-invalid @enderror" rows="10"
+                cols="30"></textarea>
 
             @error('content')
             <span class="text-danger error"><small>{{ $message }}</small></span>
