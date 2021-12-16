@@ -61,5 +61,9 @@
             </tbody>
         </table>
     </div>
+
+    <div class="pagination-sm">
+        {{ $articles->links() }}
+    </div>
     @endif
 </div>

@@ -80,7 +80,7 @@ class ArticleList extends Component
     {
         $this->validate([
             'category_id' => 'required',
-            'title' => 'required',
+            'title' => 'required|unique:articles',
             'content' => 'required',
             'image' => 'required|image',
         ]);
@@ -156,18 +156,34 @@ class ArticleList extends Component
                 'new_image' => 'required|image'
             ]);
 
+
+            // convert double to int
+            $width = (int) round($this->width);
+            $height = (int) round($this->height);
+            $x = (int) round($this->x);
+            $y = (int) round($this->y);
+
+            $croppedImage = Image::make($this->new_image->getRealPath());
+            $croppedImage->crop($width, $height, $x, $y);
+            $croppedImage->save();
+
             // update image to storage
-            $image =  $this->new_image->storePublicly('public/article/image', 'local');
-            $image = Storage::disk('local')->url($image);
+            $directory = 'public/article/image';
+            $filename =  time() . '_' . Auth::user()->id  . '_' . $this->new_image->getClientOriginalName();
+            $path = $directory . $filename;
+            $image = Storage::disk('local')->put($path, $croppedImage, 'public');
+            $image = Storage::disk('local')->url($path);
 
             // delete old image
             Storage::disk('local')->delete($this->image);
         }
 
+        $slug = Str::slug($this->title);
 
         // update to db
         $article = Article::find($article_id);
         $article->title = $this->title;
+        $article->slug = $slug;
         $article->content = $this->content;
         $article->image = $image;
         $article->article_categories_id = $this->category_id;
