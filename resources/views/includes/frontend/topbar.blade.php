@@ -52,7 +52,7 @@
                             <ul class="main-menu__list">
                                 <li class="@yield('beranda-active')"><a href="/">Beranda</a></li>
                                 <li class="dropdown @yield('destination-active')">
-                                    <a href="/about">Destinations</a>
+                                    <a href="/about">Tentang</a>
                                     <ul>
                                         <li><a href="/about">Desa Krandegan</a></li>
                                         <li><a href="/about">Kawasan Wisata Gandewalana</a></li>
