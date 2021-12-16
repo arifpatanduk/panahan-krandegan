@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class ArticleList extends Component
 {
     use WithFileUploads;
 
     // existing data
-    public $articles;
+    // public $articles;
     public $categories;
 
     // collect data
@@ -43,12 +44,14 @@ class ArticleList extends Component
     public function mount()
     {
         $this->categories = Category::all();
-        $this->articles = Article::all();
+        // $this->articles = Article::orderBy('id', 'desc')->get();
     }
 
     public function render()
     {
-        return view('livewire.admin.article.article-list');
+        return view('livewire.admin.article.article-list', [
+            'articles' => Article::latest()->paginate(10)
+        ]);
     }
 
     private function resetInputFields()
@@ -100,8 +103,7 @@ class ArticleList extends Component
         $image = Storage::disk('local')->put($path, $croppedImage, 'public');
         $image = Storage::disk('local')->url($path);
 
-        // $image =  $croppedImage->storePublicly('public/article/image', 'local');
-        // $image = Storage::disk('local')->url($image);
+        $slug = Str::slug($this->title);
 
         // store to db
         Article::create([
@@ -111,6 +113,7 @@ class ArticleList extends Component
             'content' => $this->content,
             'image' => $image,
             'status' => '1',
+            'slug' => $slug,
         ]);
 
         $this->addMode = false;
