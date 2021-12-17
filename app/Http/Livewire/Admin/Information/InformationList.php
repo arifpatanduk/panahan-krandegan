@@ -40,6 +40,7 @@ class InformationList extends Component
     public function createInformation()
     {
         $this->addInformation = true;
+        
     }
 
     public function editImage($information_id)

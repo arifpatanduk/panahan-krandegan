@@ -108,6 +108,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->group(function () {
 
             // route for user only
+            Route::name('information.')
+                ->prefix('information')
+                ->group(function() {
+                    Route::get('/{information_id}', [User\InformationController::class, 'show'])->name('show');
+                });
 
         });
 });

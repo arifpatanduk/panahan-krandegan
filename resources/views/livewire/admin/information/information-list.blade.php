@@ -26,7 +26,6 @@
         @endif
         @livewire('admin.information.information-image', ['information_id'=>$information_id], key(time() . $information_id))
     @endif
-    
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
@@ -41,11 +40,11 @@
                 <tr>
                     <td>
                         <h5 class="font-weight-bold">{{$information->name}}</h5>
-                        <div class=" mb-1">
-                            {{$information->desc}} 
+                        <div class=" mb-2">
+                            {{strlen($information->desc) > 100  ? substr($information->desc, 0, 100)." ... " : $information->desc}}
                         </div>
                         <div>
-                            {{$information->updated_at->format('d F Y')}}
+                            <small>{{$information->updated_at->format('d F Y')}}</small>
                         </div>
                     </td>
                     <td>

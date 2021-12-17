@@ -55,7 +55,7 @@
                             <td>
                                 <h5 class="font-weight-bold">{{$wahana->title}}</h5>
                                 <div>
-                                    {{$wahana->updated_at->format('d F Y')}}
+                                   <small>{{$wahana->updated_at->format('d F Y')}}</small>
                                 </div>
                             </td>
                             <td>

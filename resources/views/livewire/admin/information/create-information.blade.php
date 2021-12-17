@@ -22,10 +22,11 @@
                 <span class="text-danger error"><small>{{ $message }}</small></span>
               @enderror
             </div>
-            <div class="form-group">
-                <label for="desc">Deskripsi</label>
-                {{-- <x-forms.tinymce-editor/> --}}
-                <textarea class="form-control @error('desc') is-invalid @enderror" wire:model="desc" id="information_desc" cols="30" rows="10" placeholder="Masukkan deskripsi informasi"></textarea>
+            <div class="form-group" wire:ignore>
+                <label for="desc">Deskripsi
+                </label>
+                {{-- <x-forms.tinymce-editor wire:model="desc" id="information_desc" class="@error('desc') is-invalid @enderror"/> --}}
+                <x-forms.tinymce-editor class="form-control @error('desc') is-invalid @enderror" wire:model="desc" id="information_desc" cols="30" rows="10"></x-forms.tinymce-editor>
                 @error('desc')
                   <span class="text-danger error"><small>{{ $message }}</small></span>
                 @enderror
