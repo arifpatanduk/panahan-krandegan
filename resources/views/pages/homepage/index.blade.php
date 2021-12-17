@@ -23,7 +23,7 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="image-layer"
-                    style="background-image: url({{asset('frontend/assets/images/backgrounds/main-slider-1-ar.jpg')}});">
+                    style="background-image: url({{asset('frontend/assets/images/backgrounds/hero1.jpeg')}});">
                 </div>
                 <div class="image-layer-overlay"></div>
                 <div class="container">
@@ -39,15 +39,15 @@
             </div>
             <div class="swiper-slide">
                 <div class="image-layer"
-                    style="background-image: url({{asset('frontend/assets/images/backgrounds/main-slider-2-ar.jpg')}});">
+                    style="background-image: url({{asset('frontend/assets/images/backgrounds/hero3.jpeg')}});">
                 </div>
                 <div class="image-layer-overlay"></div>
                 <div class="container">
                     <div class="swiper-slide-inner">
                         <div class="row">
                             <div class="col-xl-12">
-                                <h2> Travel & Adventures</h2>
-                                <p>Where Would You Like To Go?</p>
+                                <h2> Gandewalana</h2>
+                                <p>Krandegan Desa Wahana Dolanan Panah</p>
                             </div>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
                     <div class="swiper-slide-inner">
                         <div class="row">
                             <div class="col-xl-12">
-                                <h2> Travel & Adventures</h2>
-                                <p>Where Would You Like To Go?</p>
+                                <h2> Gandewalana</h2>
+                                <p>Krandegan Desa Wahana Dolanan Panah</p>
                             </div>
                         </div>
                     </div>
