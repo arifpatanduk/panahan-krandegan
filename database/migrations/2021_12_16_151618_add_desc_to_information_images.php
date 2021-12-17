@@ -15,7 +15,7 @@ class AddDescToInformationImages extends Migration
     {
         Schema::table('information_images', function (Blueprint $table) {
             //
-            $table->string('desc');
+            $table->string('desc')->nullable();
         });
     }
 

@@ -17,11 +17,18 @@ class WahanaImage extends Component
     //variable
     public $images_data;
     public $image;
+    public $img_desc;
     public $img_preview = null;
 
     //conditional
     public $addImage = false;
 
+
+    public function resetInputField()
+    {
+        $this->image = null;
+        $this->img_desc = null;
+    }
 
     public function addImage()
     {
@@ -30,7 +37,7 @@ class WahanaImage extends Component
 
     public function cancelAddImage()
     {
-        $this->image = null;
+        $this->resetInputField();
         $this->addImage = false;
     }
 
@@ -62,10 +69,11 @@ class WahanaImage extends Component
 
         ModelsWahanaImage::create([
             'wahana_id' => $this->wahana_id,
-            'images' => $image
+            'images' => $image,
+            'desc' => $this->img_desc
         ]);
 
-        $this->image = null;
+        $this->resetInputField();
         $this->emit('imageStored');
     }
 

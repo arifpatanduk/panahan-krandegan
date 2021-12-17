@@ -1,5 +1,5 @@
 <header class="main-header clearfix">
-    <div class="main-header__top">
+    {{-- <div class="main-header__top">
         <div class="container">
             <div class="main-header__top-inner clearfix">
                 <div class="main-header__top-left">
@@ -37,28 +37,28 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <nav class="main-menu clearfix">
         <div class="main-menu-wrapper clearfix">
             <div class="container clearfix">
                 <div class="main-menu-wrapper-inner clearfix">
                     <div class="main-menu-wrapper__left clearfix">
                         <div class="main-menu-wrapper__logo">
-                            <a href="index.html"><img src="{{asset('frontend/assets/images/resources/logo.png')}}"
-                                    alt="" style="max-height: 36px"></a>
+                            <a href="/"><img src="{{asset('frontend/assets/images/resources/logo.png')}}" alt=""
+                                    style="max-height: 36px"></a>
                         </div>
                         <div class="main-menu-wrapper__main-menu">
                             <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                             <ul class="main-menu__list">
-                                <li class="@yield('beranda-active')"><a href="">Beranda</a></li>
+                                <li class="@yield('beranda-active')"><a href="/">Beranda</a></li>
                                 <li class="dropdown @yield('destination-active')">
-                                    <a href="/about">Destinations</a>
+                                    <a href="/about">Tentang</a>
                                     <ul>
                                         <li><a href="/about">Desa Krandegan</a></li>
                                         <li><a href="/about">Kawasan Wisata Gandewalana</a></li>
                                     </ul>
                                 </li>
-                                <li class="@yield('roadmap-active')"><a href="">Roadmap</a></li>
+                                <li class="@yield('roadmap-active')"><a href="{{ route('roadmap') }}">Roadmap</a></li>
                                 <li class="dropdown @yield('informasi-active')">
                                     <a href="">Informasi</a>
                                     <ul>
@@ -70,16 +70,17 @@
                                     </ul>
                                 </li>
                                 <li class="@yield('galeri-active')"><a href="/galeri">Galeri</a></li>
-                                <li class="@yield('berita-active')"><a href="">Berita</a></li>
+                                <li class="@yield('berita-active')"><a href="{{ route('articles.index') }}">Berita</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="main-menu-wrapper__right">
                         {{-- <a href="#" class="main-menu__search search-toggler icon-magnifying-glass"></a> --}}
                         @if (Auth::user())
-                            <a href="#" class="main-menu__user icon-avatar"></a>
+                        <a href="{{ route('home') }}" class="main-menu__user icon-avatar"></a>
                         @else
-                            <a href="/login" class="news-one__btn thm-btn">Masuk</a>
+                        <a href="/login" class="news-one__btn thm-btn">Masuk</a>
                         @endif
                     </div>
                 </div>

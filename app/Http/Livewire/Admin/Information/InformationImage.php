@@ -17,20 +17,29 @@ class InformationImage extends Component
     //variable
     public $images_data;
     public $image;
+    public $img_desc;
     public $img_preview = null;
 
     //conditional
     public $addImage = false;
 
 
+    public function resetInputField()
+    {
+        $this->image = null;
+        $this->img_desc = null;
+    }
+
     public function addImage()
     {
+        $this->resetInputField();
         $this->addImage = true;
+        
     }
 
     public function cancelAddImage()
     {
-        $this->image = null;
+        $this->resetInputField();
         $this->addImage = false;
     }
 
@@ -62,10 +71,11 @@ class InformationImage extends Component
 
         InformationImages::create([
             'information_id' => $this->information_id,
-            'images' => $image
+            'images' => $image,
+            'desc' => $this->img_desc
         ]);
 
-        $this->image = null;
+        $this->resetInputField();
         $this->emit('imageStored');
     }
 

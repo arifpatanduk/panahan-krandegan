@@ -1,12 +1,16 @@
 @include('includes.frontend.header')
+
 <body>
+    <a href="https://api.whatsapp.com/send?phone=6281226942679" class="float" target="_blank">
+        <i class="fab fa-whatsapp my-float"></i>
+    </a>
     <div class="preloader">
         <img class="preloader__image" width="60" src="{{asset('frontend/assets/images/loader.png')}}" alt="" />
     </div>
     <!-- /.preloader -->
     <div class="page-wrapper">
         @include('includes.frontend.topbar')
-        
+
         @yield('content')
 
         @include('includes.frontend.footer')
@@ -22,8 +26,8 @@
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="{{asset('frontend/assets/images/resources/logo-2.png')}}" width="155"
-                        alt="" /></a>
+                <a href="index.html" aria-label="logo image"><img
+                        src="{{asset('frontend/assets/images/resources/logo-2.png')}}" width="155" alt="" /></a>
             </div>
             <!-- /.logo-box -->
             <div class="mobile-nav__container"></div>

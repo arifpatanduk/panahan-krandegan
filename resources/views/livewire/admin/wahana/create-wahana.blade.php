@@ -36,8 +36,8 @@
             <button type="submit" class="btn btn-primary mr-2">
               <div wire:target="storeWahana" wire:loading>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
-                  Menyimpan ...
                 </span>
+                Menyimpan ...
               </div>
               <div wire:target="storeWahana" wire:loading.remove>
                   Simpan

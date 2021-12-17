@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Auth;
@@ -28,11 +29,11 @@ App\Lbc\LaravelBootstrapComponents::init();
 App\Lbc\LaravelBootstrapComponents::initDocs();
 
 
-Route::get('/', [HomepageController::class, 'index'])->name('homepage');
+Route::get('/', [HomepageController::class, 'index']);
 Route::get('/galeri', [GalleryController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 
-Route::get('/cobadmin', [Admin\PagesController::class, 'index'])->name('index');
+Route::get('/roadmap', [HomepageController::class, 'roadmap'])->name('roadmap');
 
 // Socialite login
 Route::get('login/{provider}', [SocialiteLoginController::class, 'redirectToProvider'])->name('login.provider');
@@ -42,9 +43,18 @@ Route::get('login/{provider}/callback', [SocialiteLoginController::class, 'handl
 
 Auth::routes(['verify' => true]);
 
+
+// articles frontend
+Route::name('articles.')->prefix('articles')->group(function () {
+    Route::get('/', [ArticlesController::class, 'index'])->name('index');
+    Route::get('/{slug}', [ArticlesController::class, 'show'])->name('show');
+});
+
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout');
 
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -70,7 +80,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 ->group(function () {
                     Route::get('/', [Admin\PagesController::class, 'article'])->name('index');
                 });
-            
+
             Route::name('information.')
                 ->prefix('information')
                 ->group(function () {
@@ -82,7 +92,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 ->group(function () {
                     Route::get('/', [Admin\PagesController::class, 'wahana'])->name('index');
                 });
-            
+
             Route::name('gallery.')
                 ->prefix('gallery')
                 ->group(function () {

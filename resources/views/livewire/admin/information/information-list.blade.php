@@ -59,8 +59,8 @@
                         <button class="btn btn-xs btn-danger mb-2" wire:click.prevent="deleteInformation({{$information->id}})">
                             <div wire:target="deleteInformation({{$information->id}})" wire:loading >
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
-                                  Menghapus
                                 </span>
+                                Menghapus...
                             </div>
                             <div wire:target="deleteInformation({{$information->id}})" wire:loading.remove>
                                 <span class="typcn typcn-trash"></span> Hapus

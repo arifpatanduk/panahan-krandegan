@@ -84,31 +84,22 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="tour-search-box">
-                    <form class="tour-search-one" action="tour-sidebar.html">
-                        <div class="tour-search-one__inner">
-                            <div class="tour-search-one__inputs">
-                                <div class="tour-search-one__input-box">
-                                    <label for="place">Where to</label>
-                                    <input type="text" placeholder="Enter keywords" name="place" id="place">
-                                </div>
-                                <div class="tour-search-one__input-box">
-                                    <label>When</label>
-                                    <input type="text" placeholder="September" name="when" id="datepicker">
-                                </div>
-                                <div class="tour-search-one__input-box tour-search-one__input-box-last">
-                                    <label for="type">Type</label>
-                                    <select class="selectpicker" id="type">
-                                        <option value="Adventure">Adventure</option>
-                                        <option value="Wildlife">Wildlife</option>
-                                        <option value="Sightseeing">Sightseeing</option>
-                                    </select>
-                                </div>
+                    <div class="tour-search-one">
+                        <div class="row p-3">
+                            <div class="col-md-6 text-center">
+                                <p class="mb-1">Instagram</p>
+                                <h5>
+                                    <a href="#">
+                                        Gandewalana
+                                    </a>
+                                </h5>
                             </div>
-                            <div class="tour-search-one__btn-wrap">
-                                <button type="submit" class="thm-btn tour-search-one__btn">Find now</button>
+                            <div class="col-md-6 text-center">
+                                <p class="mb-1">Facebook</p>
+                                <h5><a href="#">Gandewalana</a></h5>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -438,85 +429,52 @@
                 </div>
                 <div class="col-xl-3 col-lg-3">
                     <div class="news-one__top-right">
-                        <a href="news-details.html" class="news-one__btn thm-btn">Lihat Semua Postingan</a>
+                        <a href="{{ route('articles.index') }}" class="news-one__btn thm-btn">Lihat Semua
+                            Postingan</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="news-one__bottom">
             <div class="row">
+
+                @foreach ($articles as $article)
                 <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
                     <!--News One Single-->
                     <div class="news-one__single">
                         <div class="news-one__img">
-                            <img src="{{asset('frontend/assets/images/blog/news-one-img-1.jpg')}}" alt="">
-                            <a href="news-details.html">
+                            <img src="{{ $article->image }}" alt="">
+                            <a href="{{ route('articles.show', $article->slug) }}">
                                 <span class="news-one__plus"></span>
                             </a>
                             <div class="news-one__date">
-                                <p>28 <br> <span>Aug</span></p>
+                                <p>
+                                    {{ date('d', $article->updated_at->timestamp) }}
+                                    <br>
+                                    <span>
+                                        {{ date('M y', $article->updated_at->timestamp) }}
+                                    </span>
+                                </p>
                             </div>
                         </div>
                         <div class="news-one__content">
                             <ul class="list-unstyled news-one__meta">
-                                <li><a href="news-details.html"><i class="far fa-user-circle"></i>Admin</a></li>
-                                <li><a href="news-details.html"><i class="far fa-comments"></i>2 Comments</a>
+                                <li><a href="{{ route('articles.show', $article->slug) }}"><i
+                                            class="far fa-user-circle"></i>{{
+                                        $article->user->name }}</a></li>
+                                <li><a href="{{ route('articles.show', $article->slug) }}"><i
+                                            class="far fa-comments"></i>2 Comments</a>
                                 </li>
                             </ul>
                             <h3 class="news-one__title">
-                                <a href="news-details.html">Things to See and Do When Visiting Japan</a>
+                                <a href="{{ route('articles.show', $article->slug) }}">
+                                    {{ \Illuminate\Support\Str::limit($article->title, 45, $end='...') }}
+                                </a>
                             </h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                    <!--News One Single-->
-                    <div class="news-one__single">
-                        <div class="news-one__img">
-                            <img src="{{asset('frontend/assets/images/blog/news-one-img-2.jpg')}}" alt="">
-                            <a href="news-details.html">
-                                <span class="news-one__plus"></span>
-                            </a>
-                            <div class="news-one__date">
-                                <p>28 <br> <span>Aug</span></p>
-                            </div>
-                        </div>
-                        <div class="news-one__content">
-                            <ul class="list-unstyled news-one__meta">
-                                <li><a href="news-details.html"><i class="far fa-user-circle"></i>Admin</a></li>
-                                <li><a href="news-details.html"><i class="far fa-comments"></i>2 Comments</a>
-                                </li>
-                            </ul>
-                            <h3 class="news-one__title">
-                                <a href="news-details.html">Journeys are Best Measured in New Friends</a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                    <!--News One Single-->
-                    <div class="news-one__single">
-                        <div class="news-one__img">
-                            <img src="{{asset('frontend/assets/images/blog/news-one-img-3.jpg')}}" alt="">
-                            <a href="news-details.html">
-                                <span class="news-one__plus"></span>
-                            </a>
-                            <div class="news-one__date">
-                                <p>28 <br> <span>Aug</span></p>
-                            </div>
-                        </div>
-                        <div class="news-one__content">
-                            <ul class="list-unstyled news-one__meta">
-                                <li><a href="news-details.html"><i class="far fa-user-circle"></i>Admin</a></li>
-                                <li><a href="news-details.html"><i class="far fa-comments"></i>2 Comments</a>
-                                </li>
-                            </ul>
-                            <h3 class="news-one__title">
-                                <a href="news-details.html">Travel the Most Beautiful Places in the World</a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

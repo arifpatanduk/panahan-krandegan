@@ -29,10 +29,15 @@
                 @foreach ($articles as $article)
                 <tr>
                     <td>
-                        <div class="font-weight-bold mb-1">
-                            <h4>
-                                {{ $article->title }}
-                            </h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="{{ $article->image }}" alt="" class="rounded img-fluid" />
+                            </div>
+                            <div class="col-md-10 font-weight-bold mb-1">
+                                <h4>
+                                    {{ $article->title }}
+                                </h4>
+                            </div>
                         </div>
                         <p>{{ $article->category->name }}</p>
                         <div>
@@ -55,6 +60,10 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+
+    <div class="pagination-sm">
+        {{ $articles->links() }}
     </div>
     @endif
 </div>

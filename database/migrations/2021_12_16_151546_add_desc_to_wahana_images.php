@@ -15,7 +15,7 @@ class AddDescToWahanaImages extends Migration
     {
         Schema::table('wahana_images', function (Blueprint $table) {
             //
-            $table->string('desc');
+            $table->string('desc')->nullable();
         });
     }
 

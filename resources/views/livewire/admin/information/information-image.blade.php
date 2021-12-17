@@ -17,14 +17,14 @@
           {{-- image upload form --}}
           @if ($addImage)
             <form wire:submit.prevent="storeImage">
-                <div class="my-2">
+                <div class="form-group mb-3">
+                  <label for="image">Gambar</label>
                     <input type="file" wire:model="image" class="form-control @error('image') is-invalid @enderror" placeholder="pilih gambar">
-
                     @error('image')
                         <span class="text-danger error"><small>{{ $message }}</small></span>
                     @enderror
                 </div>
-                <div class="my-2">
+                <div class="mb-3">
                   @if ($image)
                       <img src="{{$image->temporaryUrl()}}" class="img-fluid rounded">
                   @endif
@@ -32,15 +32,24 @@
                       <img src="{{Storage::url($img_preview)}}" class="img-fluid rounded">
                   @endif
                 </div>
+                <div class="form-group mb-3">
+                  <label for="img_desc">Deskripsi (optional)</label>
+                  <input type="text" wire:model="img_desc" class="form-control @error('img_desc') is-invalid @enderror" placeholder="masukkan keterangan gambar">
+                  @error('img_desc')
+                        <span class="text-danger error"><small>{{ $message }}</small></span>
+                  @enderror
+                </div>
                 <div>
+                  
                     <div class="d-flex justify-content-end my-2">
                         <button wire:click.prevent="cancelAddImage" class="btn btn-xs btn-danger mx-2">
-                            Cancel
+                            Batal
                         </button>
-                        <button class="btn btn-xs btn-info">Submit
+                        <button class="btn btn-xs btn-info">Simpan
                             <div wire:target="storeImage" wire:loading>
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
                                 </span>
+                                Menyimpan..
                             </div>
                         </button>
                     </div>
@@ -54,6 +63,7 @@
                 <tr>
                   <th>No</th>
                   <th>Images</th>
+                  <th>Deskripsi</th>
                   <th></th>
                 </tr>
               </thead>
@@ -63,6 +73,9 @@
                         <td>{{$loop->iteration}}</td>
                         <td>
                             <img src="{{Storage::url($img->images)}}">
+                        </td>
+                        <td>
+                          {{$img->desc}}
                         </td>
                         <td class="text-center">
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close" wire:click.prevent="deleteImage({{$img->id}})">
@@ -78,6 +91,9 @@
                           </button>
                           <x-modal id="img-preview-{{$img->id}}" title="Lihat Gambar" :scrollable="true">
                             <x-slot name="body">
+                              <div class="form-group">
+                                <input type="text" value="{{$img->desc}}" disabled class="form-control">
+                              </div>
                               <img src="{{Storage::url($img->images)}}" alt="" style="width:100%;height:100%;border-radius:0; !important">
                             </x-slot>
                             <x-slot name="footer">
