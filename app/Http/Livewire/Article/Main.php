@@ -9,7 +9,8 @@ class Main extends Component
     public $article_id;
 
     protected $listeners = [
-        'likeUpdated' => 'render'
+        'likeUpdated' => 'render',
+        'commentUpdated' => 'render',
     ];
 
     public function render()

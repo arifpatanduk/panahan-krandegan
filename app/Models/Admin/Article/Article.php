@@ -31,4 +31,19 @@ class Article extends Model
     {
         return $this->belongsTo(Category::class, 'article_categories_id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->whereNull('parent_id');
+    }
+
+    public function allCommnets()
+    {
+        return $this->hasMany(Comment::class, 'article_id');
+    }
+
+    public function allLikes()
+    {
+        return $this->hasMany(Like::class, 'article_id');
+    }
 }
