@@ -29,7 +29,7 @@
                       <img src="{{$image->temporaryUrl()}}" class="img-fluid rounded">
                   @endif
                   @if($img_preview)
-                      <img src="{{Storage::url($img_preview)}}" class="img-fluid rounded">
+                      <img src="{{Storage::disk('s3')->temporaryUrl($img_preview, now()->addMinutes(100));}}" class="img-fluid rounded">
                   @endif
                 </div>
                 <div class="form-group mb-3">
@@ -45,7 +45,10 @@
                         <button wire:click.prevent="cancelAddImage" class="btn btn-xs btn-danger mx-2">
                             Batal
                         </button>
-                        <button class="btn btn-xs btn-info">Simpan
+                        <button class="btn btn-xs btn-info">
+                          <div wire:loading.remove wire:target="storeImage">
+                            Simpan
+                          </div>
                             <div wire:target="storeImage" wire:loading>
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
                                 </span>
@@ -72,7 +75,7 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>
-                            <img src="{{Storage::url($img->images)}}">
+                            <img src="{{Storage::disk('s3')->temporaryUrl($img->images, now()->addMinute(100))}}">
                         </td>
                         <td>
                           {{$img->desc}}
@@ -94,7 +97,7 @@
                               <div class="form-group">
                                 <input type="text" value="{{$img->desc}}" disabled class="form-control">
                               </div>
-                              <img src="{{Storage::url($img->images)}}" alt="" style="width:100%;height:100%;border-radius:0; !important">
+                              <img src="{{Storage::disk('s3')->temporaryUrl($img->images, now()->addMinute(100))}}" alt="" style="width:100%;height:100%;border-radius:0; !important">
                             </x-slot>
                             <x-slot name="footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

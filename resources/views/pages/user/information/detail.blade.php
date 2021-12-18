@@ -6,7 +6,7 @@
 <!--Page Header Start-->
 <section class="page-header">
     <div class="page-header__top">
-       <div class="page-header-bg" style="background-image:{{count($information->informationImages) != 0 ? Storage::url($information->informationImages[0]->images) : ''}}"></div>
+       <div class="page-header-bg" style="background-image:{{count($information->informationImages) != 0 ? Storage::disk('s3')->temporaryUrl($information->informationImages[0]->images, now()->addMinutes(100)) : ''}}"></div>
        <div class="page-header-bg-overly"></div>
         <div class="container">
             <div class="page-header__top-inner">
@@ -37,10 +37,10 @@
                     <div class="gallery">
                         <div class="news-details__img xzoom-container">
                             @if (count($information->informationImages) != 0)
-                            <img src="{{Storage::url($information->informationImages[0]->images)}}" alt=""
+                            <img src="{{Storage::disk('s3')->temporaryUrl($information->informationImages[0]->images, now()->addMinutes(100))}}" alt=""
                             class="xzoom"
                             id="xzoom-default"
-                            xoriginal="{{Storage::url($information->informationImages[0]->images)}}"/>    
+                            xoriginal="{{Storage::disk('s3')->temporaryUrl($information->informationImages[0]->images, now()->addMinutes(100))}}"/>    
                             @else
                             <img src="{{asset('frontend/assets/images/blog/news-details-img-1.jpg')}}" alt="">
                             @endif
@@ -51,8 +51,8 @@
                         <div class="xzoom-thumbs">
                             @if(count($information->informationImages) != 0)
                             @foreach ($information->informationImages as $img)
-                            <a href="{{Storage::url($img->images)}}">
-                                <img src="{{Storage::url($img->images)}}" alt="" class="xzoom-gallery" width="128" height="128" xpreview="{{Storage::url($img->images)}}">
+                            <a href="{{Storage::disk('s3')->temporaryUrl($img->images, now()->addMinutes(100))}}">
+                                <img src="{{Storage::disk('s3')->temporaryUrl($img->images, now()->addMinutes(100))}}" alt="" class="xzoom-gallery" width="128" height="128" xpreview="{{Storage::disk('s3')->temporaryUrl($img->images, now()->addMinutes(100))}}">
                             </a>
                             @endforeach
                             @endif
@@ -85,7 +85,7 @@
                             @foreach ($recentInformations as $recentInformation)
                             <li>
                                 <div class="sidebar__post-image">
-                                    <img src="{{ count($recentInformation->informationImages) != 0 ? Storage::url($recentInformation->informationImages[0]->images) : asset('frontend/assets/images/blog/lp-1-1.jpg')}}" alt="">
+                                    <img src="{{ count($recentInformation->informationImages) != 0 ? Storage::disk('s3')->temporaryUrl($recentInformation->informationImages[0]->images, now()->addMinutes(100)) : asset('frontend/assets/images/blog/lp-1-1.jpg')}}" alt="">
                                 </div>
                                 <div class="sidebar__post-content">
                                     <h3>

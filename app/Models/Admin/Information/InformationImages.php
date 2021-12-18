@@ -3,13 +3,11 @@
 namespace App\Models\Admin\Information;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Model;                                                                                                                                                                                             
 
-class InformationImages extends Model implements HasMedia
+class InformationImages extends Model
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory;
 
-    protected $guarded = [];
+    protected $guarded = [];               
 }

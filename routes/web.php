@@ -46,7 +46,7 @@ Auth::routes(['verify' => true]);
 
 
 // articles frontend
-Route::name('articles.')->prefix('articles')->group(function () {
+Route::name('articles.')->prefix('news')->group(function () {
     Route::get('/', [ArticlesController::class, 'index'])->name('index');
     Route::get('/{slug}', [ArticlesController::class, 'show'])->name('show');
 });

@@ -23,7 +23,7 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="image-layer"
-                    style="background-image: url({{asset('frontend/assets/images/backgrounds/main-slider-1-ar.jpg')}});">
+                    style="background-image: url({{asset('frontend/assets/images/backgrounds/hero1.jpeg')}});">
                 </div>
                 <div class="image-layer-overlay"></div>
                 <div class="container">
@@ -39,15 +39,15 @@
             </div>
             <div class="swiper-slide">
                 <div class="image-layer"
-                    style="background-image: url({{asset('frontend/assets/images/backgrounds/main-slider-2-ar.jpg')}});">
+                    style="background-image: url({{asset('frontend/assets/images/backgrounds/hero3.jpeg')}});">
                 </div>
                 <div class="image-layer-overlay"></div>
                 <div class="container">
                     <div class="swiper-slide-inner">
                         <div class="row">
                             <div class="col-xl-12">
-                                <h2> Travel & Adventures</h2>
-                                <p>Where Would You Like To Go?</p>
+                                <h2> Gandewalana</h2>
+                                <p>Krandegan Desa Wahana Dolanan Panah</p>
                             </div>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
                     <div class="swiper-slide-inner">
                         <div class="row">
                             <div class="col-xl-12">
-                                <h2> Travel & Adventures</h2>
-                                <p>Where Would You Like To Go?</p>
+                                <h2> Gandewalana</h2>
+                                <p>Krandegan Desa Wahana Dolanan Panah</p>
                             </div>
                         </div>
                     </div>
@@ -207,7 +207,7 @@
                     @foreach ($informations as $information)
                     <div class="popular-tours__single">
                         <div class="popular-tours__img">
-                            <img src="{{ count($information->informationImages) != 0 ? Storage::url($information->informationImages[0]->images) : asset('frontend/assets/images/resources/popular-tours__img-1.jpg')}}" alt="">
+                            <img src="{{ count($information->informationImages) != 0 ? Storage::disk('s3')->temporaryUrl($information->informationImages[0]->images, now()->addMinutes(100)) : asset('frontend/assets/images/resources/popular-tours__img-1.jpg')}}" alt="">
                         </div>
                         <div class="popular-tours__content">
                             <div class="popular-tours__stars">
@@ -459,12 +459,24 @@
                         </div>
                         <div class="news-one__content">
                             <ul class="list-unstyled news-one__meta">
-                                {{-- <li><a href="{{ route('articles.show', $article->slug) }}"><i
-                                            class="far fa-user-circle"></i>{{
-                                        $article->user->name }}</a></li>
-                                <li><a href="{{ route('articles.show', $article->slug) }}"><i
-                                            class="far fa-comments"></i>2 Comments</a>
-                                </li> --}}
+                                <li>
+                                    <a href="{{ route('articles.show', $article->slug) }}">
+                                        <i class="far fa-user-circle"></i>{{ $article->user->name }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('articles.show', $article->slug) }}">
+                                        <i class="far fa-comments"></i>
+                                        {{ count($article->allCommnets) }} Komentar
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('articles.show', $article->slug) }}">
+                                        <i class="far fa-thumbs-up"></i>
+                                        {{ count($article->allLikes) }} Suka
+                                    </a>
+                                </li>
                             </ul>
                             <h3 class="news-one__title">
                                 {{-- <a href="{{ route('articles.show', $article->slug) }}">

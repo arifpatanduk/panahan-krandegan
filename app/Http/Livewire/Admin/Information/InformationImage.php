@@ -67,7 +67,7 @@ class InformationImage extends Component
         
         $ekstensi = $this->image->getClientOriginalExtension();
         $nama_file =  Carbon::now()->timestamp . "." . $ekstensi;
-        $image = Storage::disk('local')->putFileAs('public/information/images', $this->image, $nama_file);
+        $image = Storage::disk('s3')->putFileAs('information/images', $this->image, $nama_file);
 
         InformationImages::create([
             'information_id' => $this->information_id,
@@ -82,7 +82,7 @@ class InformationImage extends Component
     public function deleteImage($image_id)
     {
         $image = InformationImages::find($image_id);
-        Storage::delete($image->images);
+        Storage::disk('s3')->delete($image->images);
         $image->delete();
 
         $this->emit('imageDeleted');

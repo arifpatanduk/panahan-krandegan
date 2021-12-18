@@ -65,7 +65,7 @@ class WahanaImage extends Component
         
         $ekstensi = $this->image->getClientOriginalExtension();
         $nama_file =  Carbon::now()->timestamp . "." . $ekstensi;
-        $image = Storage::disk('local')->putFileAs('public/wahana/images', $this->image, $nama_file);
+        $image = Storage::disk('s3')->putFileAs('wahana/images', $this->image, $nama_file);
 
         ModelsWahanaImage::create([
             'wahana_id' => $this->wahana_id,
@@ -80,7 +80,7 @@ class WahanaImage extends Component
     public function deleteImage($image_id)
     {
         $image = ModelsWahanaImage::find($image_id);
-        Storage::delete($image->images);
+        Storage::disk('s3')->delete($image->images);
         $image->delete();
 
         $this->emit('imageDeleted');

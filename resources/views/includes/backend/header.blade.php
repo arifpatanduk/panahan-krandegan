@@ -17,4 +17,6 @@
   @livewireStyles
   @stack('addon-styles')
   <x-head.tinymce-config />
+  {{-- alpine js --}}
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 </head>

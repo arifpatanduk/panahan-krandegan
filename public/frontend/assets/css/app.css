@@ -21,3 +21,60 @@
 .float:hover {
     color: #eb8746;
 }
+
+.news-details__social-list button {
+    outline: none !important;
+    border: none;
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--thm-black);
+    background-color: #faf5ee;
+    border-radius: 50%;
+    font-size: 15px;
+    height: 50px;
+    width: 50px;
+    transform: rotate(0);
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+    z-index: 1;
+}
+
+.news-details__social-list .active {
+    color: var(--thm-base);
+    background-color: var(--thm-primary);
+}
+
+.news-details__social-list button:hover {
+    color: var(--thm-base);
+    transform: rotate(360deg);
+}
+
+.news-details__social-list button:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background-color: var(--thm-primary);
+    border-radius: 50%;
+    transform: scale(0);
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.52);
+    z-index: -1;
+}
+
+.news-details__social-list button:hover:before {
+    transform: scaleX(1);
+}
+
+.news-details__social-list button + button {
+    margin-left: 10px;
+}
