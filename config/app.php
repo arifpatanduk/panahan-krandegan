@@ -177,6 +177,8 @@ return [
 
         Spatie\Permission\PermissionServiceProvider::class,
 
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
+
     ],
 
     /*
@@ -231,6 +233,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Share' => Jorenvh\Share\ShareFacade::class,
     ],
 
 ];
