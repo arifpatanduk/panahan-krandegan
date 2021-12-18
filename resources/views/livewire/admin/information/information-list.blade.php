@@ -41,7 +41,7 @@
                     <td>
                         <h5 class="font-weight-bold">{{$information->name}}</h5>
                         <div class=" mb-2">
-                            {{strlen($information->desc) > 100  ? substr($information->desc, 0, 100)." ... " : $information->desc}}
+                            {!!strlen($information->desc) > 100  ? substr($information->desc, 0, 100)." ... " : $information->desc!!}
                         </div>
                         <div>
                             <small>{{$information->updated_at->format('d F Y')}}</small>

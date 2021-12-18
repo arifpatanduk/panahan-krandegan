@@ -16,7 +16,10 @@
                     <button wire:click.prevent="cancelAddType" class="btn btn-xs btn-danger mx-2">
                         Batal
                     </button>
-                    <button class="btn btn-xs btn-info">Simpan
+                    <button class="btn btn-xs btn-info">
+                        <div wire:loading.remove wire:target="storeType">
+                            Simpan
+                        </div>
                         <div wire:target="storeType" wire:loading>
                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
                             </span>

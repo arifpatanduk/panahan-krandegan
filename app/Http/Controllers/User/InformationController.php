@@ -4,7 +4,9 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Information\Information;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class InformationController extends Controller
 {
@@ -16,6 +18,9 @@ class InformationController extends Controller
     public function index()
     {
         //
+        $user = Auth::user();
+        $informations = Information::all();
+        return view('pages.user.information.index', compact('informations', 'user'));
     }
 
     /**
@@ -48,8 +53,10 @@ class InformationController extends Controller
     public function show($information_id)
     {
         //
+        $user = Auth::user();
         $information = Information::where('id', $information_id)->first();
-        dd($information);
+        $recentInformations = Information::latest()->take(3)->get();
+        return view('pages.user.information.detail', compact('information','recentInformations','user'));
     }
 
     /**

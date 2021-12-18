@@ -207,16 +207,16 @@
                     @foreach ($informations as $information)
                     <div class="popular-tours__single">
                         <div class="popular-tours__img">
-                            <img src="{{asset('frontend/assets/images/resources/popular-tours__img-1.jpg')}}" alt="">
+                            <img src="{{ count($information->informationImages) != 0 ? Storage::url($information->informationImages[0]->images) : asset('frontend/assets/images/resources/popular-tours__img-1.jpg')}}" alt="">
                         </div>
                         <div class="popular-tours__content">
                             <div class="popular-tours__stars">
                                 <i class="fa fa-star"></i> 8.5
                             </div>
                             <h3 class="popular-tours__title"><a href="tour-details.html">{{$information->name}}</a></h3>
-                            <p>{{strlen($information->desc) > 50  ? substr($information->desc, 0, 50)." ... " : $information->desc}}</p>
+                            <p>{!!strlen($information->desc) > 50  ? substr($information->desc, 0, 50)." ... " : $information->desc!!}</p>
                             <ul class="popular-tours__meta list-unstyled">
-                                <li><a href="{{route('user.information.show', ['informationId'=>$information->id])}}">Lihat Selengkapnya</a></li>
+                                <li><a href="{{route('user.information.show', ['information_id'=>$information->id])}}">Lihat Selengkapnya</a></li>
                             </ul>
                         </div>
                     </div>
@@ -226,7 +226,7 @@
         </div>
     </div>
 </section>
-<!--Wahana End-->
+<!--Information End-->
 
 <!--Why Choose Start-->
 <section class="why-choose">
@@ -444,9 +444,9 @@
                     <div class="news-one__single">
                         <div class="news-one__img">
                             <img src="{{ $article->image }}" alt="">
-                            <a href="{{ route('articles.show', $article->slug) }}">
+                            {{-- <a href="{{ route('articles.show', $article->slug) }}">
                                 <span class="news-one__plus"></span>
-                            </a>
+                            </a> --}}
                             <div class="news-one__date">
                                 <p>
                                     {{ date('d', $article->updated_at->timestamp) }}
@@ -459,17 +459,17 @@
                         </div>
                         <div class="news-one__content">
                             <ul class="list-unstyled news-one__meta">
-                                <li><a href="{{ route('articles.show', $article->slug) }}"><i
+                                {{-- <li><a href="{{ route('articles.show', $article->slug) }}"><i
                                             class="far fa-user-circle"></i>{{
                                         $article->user->name }}</a></li>
                                 <li><a href="{{ route('articles.show', $article->slug) }}"><i
                                             class="far fa-comments"></i>2 Comments</a>
-                                </li>
+                                </li> --}}
                             </ul>
                             <h3 class="news-one__title">
-                                <a href="{{ route('articles.show', $article->slug) }}">
+                                {{-- <a href="{{ route('articles.show', $article->slug) }}">
                                     {{ \Illuminate\Support\Str::limit($article->title, 45, $end='...') }}
-                                </a>
+                                </a> --}}
                             </h3>
                         </div>
                     </div>

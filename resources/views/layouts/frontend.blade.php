@@ -5,7 +5,7 @@
         <i class="fab fa-whatsapp my-float"></i>
     </a>
     <div class="preloader">
-        <img class="preloader__image" width="60" src="{{asset('frontend/assets/images/loader.png')}}" alt="" />
+        <img class="preloader__image" width="200" src="{{asset('frontend/assets/images/loader.png')}}" alt="" />
     </div>
     <!-- /.preloader -->
     <div class="page-wrapper">

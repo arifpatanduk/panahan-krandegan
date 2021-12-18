@@ -12,4 +12,14 @@ class Information extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
 
     protected $guarded = [];
+
+    public function informationImages()
+    {
+        return $this->hasMany(InformationImages::class, 'information_id', 'id');
+    }
+
+    public function informationReviews()
+    {
+        return $this->hasMany(InformationReview::class);
+    }
 }

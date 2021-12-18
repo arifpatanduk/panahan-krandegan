@@ -31,4 +31,5 @@
 <link rel="stylesheet" href="{{asset('frontend/assets/css/tevily.css?v=1')}}" />
 <link rel="stylesheet" href="{{asset('frontend/assets/css/tevily-responsive.css')}}" />
 <link rel="stylesheet" href="{{asset('frontend/assets/css/app.css')}}" />
+@stack('addon-styles')
 @livewireStyles
