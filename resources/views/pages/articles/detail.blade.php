@@ -47,13 +47,6 @@
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="sidebar">
-                    {{-- <div class="sidebar__single sidebar__search">
-                        <h3 class="sidebar__title clr-white">Search</h3>
-                        <form action="#" class="sidebar__search-form">
-                            <input type="search" placeholder="Search">
-                            <button type="submit"><i class="icon-magnifying-glass"></i></button>
-                        </form>
-                    </div> --}}
                     <div class="sidebar__single sidebar__post">
                         <h3 class="sidebar__title">Artikel Terbaru</h3>
                         <ul class="sidebar__post-list list-unstyled">
