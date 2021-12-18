@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\User\Information;
+namespace App\Http\Livewire\User\Wahana;
 
-use App\Models\Admin\Information\Information;
-use App\Models\Admin\Information\InformationReview;
+use App\Models\Wahana;
+use App\Models\WahanaReview;
 use Livewire\Component;
 
 class Review extends Component
 {
-
     //for key
     public $user;
 
@@ -17,7 +16,7 @@ class Review extends Component
     public $userReviewed;
 
     //existing data
-    public $information;
+    public $wahana;
     public $totalReviews;
 
     //conditional
@@ -32,10 +31,10 @@ class Review extends Component
     public function mount()
     {
         if($this->user != null){
-            $this->userReviewed = InformationReview::where('information_id', $this->information->id)->where('user_id', $this->user->id)->first();
-            $this->reviews = InformationReview::where('information_id', $this->information->id)->whereNotIn('user_id',[$this->user->id])->get();
+            $this->userReviewed = WahanaReview::where('wahana_id', $this->wahana->id)->where('user_id', $this->user->id)->first();
+            $this->reviews = WahanaReview::where('wahana_id', $this->wahana->id)->whereNotIn('user_id',[$this->user->id])->get();
         } else {
-            $this->reviews = InformationReview::where('information_id', $this->information->id)->get();
+            $this->reviews = WahanaReview::where('wahana_id', $this->wahana->id)->get();
         }
         
         
@@ -51,14 +50,13 @@ class Review extends Component
         }
     }
 
-    
+
 
     public function render()
     {
-        return view('livewire.user.information.review');
+        return view('livewire.user.wahana.review');
     }
 
-    
     public function editReview()
     {
         $this->editReview = true;
@@ -68,12 +66,12 @@ class Review extends Component
     public function deleteReview()
     {
         
-        $reviewData = InformationReview::where('information_id', $this->information->id)->where('user_id', $this->user->id)->first();
+        $reviewData = WahanaReview::where('wahana_id', $this->wahana->id)->where('user_id', $this->user->id)->first();
         
         //min rating
-        $data_information = Information::where('id',$this->information->id)->first();
-        $total_rating = (int) $data_information->total_rating - (int) $reviewData->rating;
-        $data_information->update([
+        $data_wahana = Wahana::where('id',$this->wahana->id)->first();
+        $total_rating = (int) $data_wahana->total_rating - (int) $reviewData->rating;
+        $data_wahana->update([
             'total_rating'=>$total_rating
         ]);
 

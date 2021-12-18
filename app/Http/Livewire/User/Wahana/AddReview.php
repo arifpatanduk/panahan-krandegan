@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Livewire\User\Information;
+namespace App\Http\Livewire\User\Wahana;
 
-use App\Models\Admin\Information\Information;
-use App\Models\Admin\Information\InformationReview;
+use App\Models\Wahana;
+use App\Models\WahanaReview;
 use Livewire\Component;
 
 class AddReview extends Component
@@ -12,7 +12,7 @@ class AddReview extends Component
     public $rate, $review, $user;
 
     //exiting data
-    public $information;
+    public $wahana;
 
 
     protected $listeners = [
@@ -24,10 +24,11 @@ class AddReview extends Component
         $this->rate = null;
         $this->review = null;
     }
-    
+
+
     public function render()
     {
-        return view('livewire.user.information.add-review');
+        return view('livewire.user.wahana.add-review');
     }
 
 
@@ -38,22 +39,22 @@ class AddReview extends Component
                 'review' => 'required'
             ]);
         
-        $review_existing = InformationReview::where(['user_id'=>$this->user->id, 'information_id' => $this->information->id])->first(); 
-        $information_data = Information::where('id', $this->information->id)->first();
+        $review_existing = WahanaReview::where(['user_id'=>$this->user->id, 'wahana_id' => $this->wahana->id])->first(); 
+        $wahana_data = Wahana::where('id', $this->wahana->id)->first();
         $existing_rating = $review_existing!=null ? $review_existing->rating : 0;
-        $total_rating = (int) $information_data->total_rating - (int) $existing_rating + (int) $this->rate;
+        $total_rating = (int) $wahana_data->total_rating - (int) $existing_rating + (int) $this->rate;
         
-        InformationReview::updateOrCreate(
+        WahanaReview::updateOrCreate(
             ['user_id'=>$this->user->id],
             [
-                'information_id' => $this->information->id,
+                'wahana_id' => $this->wahana->id,
                 'rating' => $this->rate,
                 'review' => $this->review
             ]
         );
 
         
-        $information_data->update([
+        $wahana_data->update([
             'total_rating'=> $total_rating
         ]);
 
@@ -63,9 +64,8 @@ class AddReview extends Component
 
     public function editReview()
     {
-        $reviewData = InformationReview::where('information_id', $this->information->id)->where('user_id', $this->user->id)->first();
+        $reviewData = WahanaReview::where('wahana_id', $this->wahana->id)->where('user_id', $this->user->id)->first();
         $this->rate = $reviewData->rating;
         $this->review = $reviewData->review;
     }
-
 }

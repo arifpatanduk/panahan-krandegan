@@ -77,7 +77,7 @@
     <div id="review" class="review"></div>
     @if(Auth::user())
         @if ($editReview || $isReviewed==false)
-            @livewire('user.information.add-review', key(time() . $user->id), ['information'=>$information, 'user'=>$user])
+            @livewire('user.wahana.add-review', key(time() . $user->id), ['wahana'=>$wahana, 'user'=>$user])
         @endif
     @else
         <div>

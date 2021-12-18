@@ -16,7 +16,7 @@ class CreateWahana extends Migration
         Schema::create('wahana', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('desc');
+            $table->longText('desc');
             $table->double('price');
             $table->double('total_rating')->default(0);
             $table->timestamps();

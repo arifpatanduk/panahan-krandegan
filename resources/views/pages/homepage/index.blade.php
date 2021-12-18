@@ -115,21 +115,39 @@
             <h2 class="section-title__title">Wahana Gandewalana</h2>
         </div>
         <div class="row masonary-layout">
-            <div class="col-xl-3 col-lg-3">
-                <div class="destinations-one__single">
-                    <div class="destinations-one__img">
-                        <img src="{{asset('frontend/assets/images/destination/destination-1-1.png')}}" alt="">
-                        <div class="destinations-one__content">
-                            <h2 class="destinations-one__title"><a href="destinations-details.html">Spain</a>
-                            </h2>
-                        </div>
-                        <div class="destinations-one__button">
-                            <a href="#">6 tours</a>
+            @php
+                $numOfCols = 4;
+                $rowCount = 0;
+                $bootstrapColWidth = 12 / $numOfCols;
+            @endphp 
+                @foreach ($wahanas as $wahana)
+                @if ($rowCount % $numOfCols == 0)
+                    <div class="row">
+                @endif
+                    @php
+                        $rowCount++;
+                    @endphp
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="destinations-one__single">
+                            <div class="destinations-one__img">
+                                <img src="{{count($wahana->wahanaImages) != 0 ? Storage::disk('s3')->temporaryUrl($wahana->wahanaImages[0]->images, now()->addMinutes(100)) : asset('frontend/assets/images/destination/destination-1-1.png')}}" alt="" height="285px">
+                                <div class="destinations-one__content">
+                                    <h2 class="destinations-one__title"><a href="{{route('wahana.show', ['wahana_id'=>$wahana->id])}}">{{$wahana->title}}</a>
+                                    </h2>
+                                </div>
+                                <div class="destinations-one__button">
+                                    <a href="#">
+                                        <i class="fas fa-star"></i> {{$wahana->total_rating}}
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                @if ($rowCount % $numOfCols == 0)
                 </div>
-            </div>
-            <div class="col-xl-6 col-lg-6">
+                @endif
+                @endforeach
+            {{-- <div class="col-xl-6 col-lg-6">
                 <div class="destinations-one__single">
                     <div class="destinations-one__img">
                         <img src="{{asset('frontend/assets/images/destination/destination-1-2.png')}}" alt="">
@@ -185,7 +203,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </div>
@@ -216,7 +234,7 @@
                             <h3 class="popular-tours__title"><a href="tour-details.html">{{$information->name}}</a></h3>
                             <p>{!!strlen($information->desc) > 50  ? substr($information->desc, 0, 50)." ... " : $information->desc!!}</p>
                             <ul class="popular-tours__meta list-unstyled">
-                                <li><a href="{{route('user.information.show', ['information_id'=>$information->id])}}">Lihat Selengkapnya</a></li>
+                                <li><a href="{{route('information.show', ['information_id'=>$information->id])}}">Lihat Selengkapnya</a></li>
                             </ul>
                         </div>
                     </div>

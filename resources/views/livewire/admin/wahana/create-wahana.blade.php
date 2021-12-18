@@ -28,7 +28,8 @@
             <div class="form-group">
                 <label for="desc">Deskripsi</label>
                 {{-- <x-forms.tinymce-editor/> --}}
-                <textarea class="form-control @error('desc') is-invalid @enderror" wire:model="desc" id="information_desc" cols="30" rows="10" placeholder="Masukkan deskripsi wahana"></textarea>
+                <x-forms.tinymce-editor x-ref="tinymce" class="form-control @error('desc') is-invalid @enderror" wire:model="desc" id="information_desc" cols="30" rows="10"></x-forms.tinymce-editor>
+                {{-- <textarea class="form-control @error('desc') is-invalid @enderror" wire:model="desc" id="information_desc" cols="30" rows="10" placeholder="Masukkan deskripsi wahana"></textarea> --}}
                 @error('desc')
                   <span class="text-danger error"><small>{{ $message }}</small></span>
                 @enderror

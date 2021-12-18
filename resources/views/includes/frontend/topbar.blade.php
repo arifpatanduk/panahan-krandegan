@@ -60,7 +60,7 @@
                                 </li>
                                 <li class="@yield('roadmap-active')"><a href="{{ route('roadmap') }}">Roadmap</a></li>
                                 <li class="dropdown @yield('informasi-active')">
-                                    <a href="{{route('user.information.index')}}">Informasi</a>
+                                    <a href="{{route('information.index')}}">Informasi</a>
                                     @php
                                         $informationTypes = \App\Models\Admin\Information\InformationType::all();
                                     @endphp

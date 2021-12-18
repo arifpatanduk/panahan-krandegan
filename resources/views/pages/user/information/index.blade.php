@@ -60,7 +60,7 @@
                                 <h3 class="popular-tours__title"><a href="tour-details.html">{{$information->name}}</a></h3>
                                 <p>{!!strlen($information->desc) > 50  ? substr($information->desc, 0, 50)." ... " : $information->desc!!}</p>
                                 <ul class="popular-tours__meta list-unstyled">
-                                    <li><a href="{{route('user.information.show', ['information_id'=>$information->id])}}">Lihat Selengkapnya</a></li>
+                                    <li><a href="{{route('information.show', ['information_id'=>$information->id])}}">Lihat Selengkapnya</a></li>
                                 </ul>
                             </div>
                         </div>
