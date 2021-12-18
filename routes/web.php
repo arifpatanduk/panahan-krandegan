@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\User;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\HomepageController;
@@ -118,6 +119,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->group(function () {
 
             // route for user only
+            Route::name('information.')
+                ->prefix('information')
+                ->group(function() {
+                    Route::get('/', [User\InformationController::class, 'index'])->name('index');
+                    Route::get('/{information_id}', [User\InformationController::class, 'show'])->name('show');
+                });
 
         });
 });

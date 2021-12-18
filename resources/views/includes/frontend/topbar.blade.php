@@ -60,13 +60,14 @@
                                 </li>
                                 <li class="@yield('roadmap-active')"><a href="{{ route('roadmap') }}">Roadmap</a></li>
                                 <li class="dropdown @yield('informasi-active')">
-                                    <a href="">Informasi</a>
+                                    <a href="{{route('user.information.index')}}">Informasi</a>
+                                    @php
+                                        $informationTypes = \App\Models\Admin\Information\InformationType::all();
+                                    @endphp
                                     <ul>
-                                        <li><a href="">Fasilitas</a></li>
-                                        <li><a href="">Transportasi</a></li>
-                                        <li><a href="">Penginapan</a></li>
-                                        <li><a href="">Merchandise</a></li>
-                                        <li><a href="">Promo</a></li>
+                                        @foreach ($informationTypes as $type)
+                                            <li><a href="">{{$type->name}}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li class="@yield('galeri-active')"><a href="/galeri">Galeri</a></li>

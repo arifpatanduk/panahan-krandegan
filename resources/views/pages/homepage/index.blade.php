@@ -204,74 +204,29 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="popular-tours__carousel owl-theme owl-carousel">
+                    @foreach ($informations as $information)
                     <div class="popular-tours__single">
                         <div class="popular-tours__img">
-                            <img src="{{asset('frontend/assets/images/resources/popular-tours__img-1.jpg')}}" alt="">
-                            <div class="popular-tours__icon">
-                                <a href="tour-details.html">
-                                    <i class="fa fa-heart"></i>
-                                </a>
-                            </div>
+                            <img src="{{ count($information->informationImages) != 0 ? Storage::disk('s3')->temporaryUrl($information->informationImages[0]->images, now()->addMinutes(100)) : asset('frontend/assets/images/resources/popular-tours__img-1.jpg')}}" alt="">
                         </div>
                         <div class="popular-tours__content">
                             <div class="popular-tours__stars">
                                 <i class="fa fa-star"></i> 8.5
                             </div>
-                            <h3 class="popular-tours__title"><a href="tour-details.html">Panahan Utama</a></h3>
-                            <p class="popular-tours__rate"><span>Rp. 10.000</span> / Per Gundul</p>
+                            <h3 class="popular-tours__title"><a href="tour-details.html">{{$information->name}}</a></h3>
+                            <p>{!!strlen($information->desc) > 50  ? substr($information->desc, 0, 50)." ... " : $information->desc!!}</p>
                             <ul class="popular-tours__meta list-unstyled">
-                                <li><a href="">Lihat Selengkapnya</a></li>
+                                <li><a href="{{route('user.information.show', ['information_id'=>$information->id])}}">Lihat Selengkapnya</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="popular-tours__single">
-                        <div class="popular-tours__img">
-                            <img src="{{asset('frontend/assets/images/resources/popular-tours__img-2.jpg')}}" alt="">
-                            <div class="popular-tours__icon">
-                                <a href="tour-details.html">
-                                    <i class="fa fa-heart"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="popular-tours__content">
-                            <div class="popular-tours__stars">
-                                <i class="fa fa-star"></i> 10.0 Superb
-                            </div>
-                            <h3 class="popular-tours__title"><a href="tour-details.html">Kolam renang anak</a></h3>
-                            <p class="popular-tours__rate"><span>$1870</span> / Per Gundul</p>
-                            <ul class="popular-tours__meta list-unstyled">
-                                <li><a href="">Lihat Selengkapnya</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="popular-tours__single">
-                        <div class="popular-tours__img">
-                            {{-- <img src="{{asset('frontend/assets/images/resources/popular-tours__img-3.jpg')}}"
-                                alt=""> --}}
-                            <img src="{{asset('frontend/assets/images/resources/popular-tours__img-3.jpg')}}" alt="">
-                            <div class="popular-tours__icon">
-                                <a href="tour-details.html">
-                                    <i class="fa fa-heart"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="popular-tours__content">
-                            <div class="popular-tours__stars">
-                                <i class="fa fa-star"></i> 9.1
-                            </div>
-                            <h3 class="popular-tours__title"><a href="tour-details.html">Taman bermain</a></h3>
-                            <p class="popular-tours__rate"><span>Rp. 1000</span> / Per Gundul</p>
-                            <ul class="popular-tours__meta list-unstyled">
-                                <li><a href="">Lihat Selengkapnya</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--Wahana End-->
+<!--Information End-->
 
 <!--Why Choose Start-->
 <section class="why-choose">
@@ -489,9 +444,9 @@
                     <div class="news-one__single">
                         <div class="news-one__img">
                             <img src="{{ $article->image }}" alt="">
-                            <a href="{{ route('articles.show', $article->slug) }}">
+                            {{-- <a href="{{ route('articles.show', $article->slug) }}">
                                 <span class="news-one__plus"></span>
-                            </a>
+                            </a> --}}
                             <div class="news-one__date">
                                 <p>
                                     {{ date('d', $article->updated_at->timestamp) }}
@@ -524,9 +479,9 @@
                                 </li>
                             </ul>
                             <h3 class="news-one__title">
-                                <a href="{{ route('articles.show', $article->slug) }}">
+                                {{-- <a href="{{ route('articles.show', $article->slug) }}">
                                     {{ \Illuminate\Support\Str::limit($article->title, 45, $end='...') }}
-                                </a>
+                                </a> --}}
                             </h3>
                         </div>
                     </div>

@@ -22,10 +22,10 @@
                 <span class="text-danger error"><small>{{ $message }}</small></span>
               @enderror
             </div>
-            <div class="form-group">
-                <label for="desc">Deskripsi</label>
-                {{-- <x-forms.tinymce-editor/> --}}
-                <textarea class="form-control @error('desc') is-invalid @enderror" wire:model="desc" id="information_desc" cols="30" rows="10" placeholder="Masukkan deskripsi informasi"></textarea>
+            <div class="form-group" wire:ignore>
+                <label for="desc">Deskripsi
+                </label>
+                <x-forms.tinymce-editor x-ref="tinymce" class="form-control @error('desc') is-invalid @enderror" wire:model="desc" id="information_desc" cols="30" rows="10"></x-forms.tinymce-editor>
                 @error('desc')
                   <span class="text-danger error"><small>{{ $message }}</small></span>
                 @enderror
@@ -33,8 +33,8 @@
             <button type="submit" class="btn btn-primary mr-2">
               <div wire:target="storeInformation" wire:loading>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
-                  Menyimpan ...
                 </span>
+                Menyimpan...
               </div>
               <div wire:target="storeInformation" wire:loading.remove>
                   Simpan
