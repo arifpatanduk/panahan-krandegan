@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\User;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SocialiteLoginController;
 use App\Http\Controllers\HomepageController;
@@ -45,9 +46,25 @@ Auth::routes(['verify' => true]);
 
 
 // articles frontend
-Route::name('articles.')->prefix('articles')->group(function () {
+Route::name('articles.')->prefix('news')->group(function () {
     Route::get('/', [ArticlesController::class, 'index'])->name('index');
     Route::get('/{slug}', [ArticlesController::class, 'show'])->name('show');
+});
+
+// information
+Route::name('information.')
+->prefix('information')
+->group(function() {
+    Route::get('/', [User\InformationController::class, 'index'])->name('index');
+    Route::get('/{information_id}', [User\InformationController::class, 'show'])->name('show');
+});
+
+// wahana
+Route::name('wahana.')
+->prefix('wahana')
+->group(function() {
+    Route::get('/', [User\WahanaController::class, 'index'])->name('index');
+    Route::get('/{wahana_id}', [User\WahanaController::class, 'show'])->name('show');
 });
 
 
@@ -116,8 +133,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('user.')
         ->prefix('user')
         ->group(function () {
-
-            // route for user only
+            //route for user only
 
         });
 });

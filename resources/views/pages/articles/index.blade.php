@@ -30,14 +30,29 @@
                     </div>
                     <div class="news-one__content">
                         <ul class="list-unstyled news-one__meta">
-                            <li><a href="{{ route('articles.show', $article->slug) }}"><i
-                                        class="far fa-user-circle"></i>{{ $article->user->name
-                                    }}</a></li>
-                            <li><a href="#"><i class="far fa-comments"></i>2 Comments</a>
+                            <li>
+                                <a href="{{ route('articles.show', $article->slug) }}">
+                                    <i class="far fa-user-circle"></i>{{ $article->user->name }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('articles.show', $article->slug) }}">
+                                    <i class="far fa-comments"></i>
+                                    {{ count($article->allCommnets) }} Komentar
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('articles.show', $article->slug) }}">
+                                    <i class="far fa-thumbs-up"></i>
+                                    {{ count($article->allLikes) }} Suka
+                                </a>
                             </li>
                         </ul>
                         <h3 class="news-one__title">
-                            <a href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
+                            <a href="{{ route('articles.show', $article->slug) }}">
+                                {{ \Illuminate\Support\Str::limit($article->title, 45, $end='...') }}
+                            </a>
                         </h3>
                     </div>
                 </div>

@@ -11,4 +11,14 @@ class Wahana extends Model
 
     protected $table = 'wahana';
     protected $guarded = [];
+
+    public function wahanaImages()
+    {
+        return $this->hasMany(WahanaImage::class, 'wahana_id', 'id');
+    }
+
+    public function informationReviews()
+    {
+        return $this->hasMany(WahanaReview::class);
+    }
 }

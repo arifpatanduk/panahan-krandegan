@@ -17,20 +17,29 @@ class InformationImage extends Component
     //variable
     public $images_data;
     public $image;
+    public $img_desc;
     public $img_preview = null;
 
     //conditional
     public $addImage = false;
 
 
+    public function resetInputField()
+    {
+        $this->image = null;
+        $this->img_desc = null;
+    }
+
     public function addImage()
     {
+        $this->resetInputField();
         $this->addImage = true;
+        
     }
 
     public function cancelAddImage()
     {
-        $this->image = null;
+        $this->resetInputField();
         $this->addImage = false;
     }
 
@@ -58,21 +67,22 @@ class InformationImage extends Component
         
         $ekstensi = $this->image->getClientOriginalExtension();
         $nama_file =  Carbon::now()->timestamp . "." . $ekstensi;
-        $image = Storage::disk('local')->putFileAs('public/information/images', $this->image, $nama_file);
+        $image = Storage::disk('s3')->putFileAs('information/images', $this->image, $nama_file);
 
         InformationImages::create([
             'information_id' => $this->information_id,
-            'images' => $image
+            'images' => $image,
+            'desc' => $this->img_desc
         ]);
 
-        $this->image = null;
+        $this->resetInputField();
         $this->emit('imageStored');
     }
 
     public function deleteImage($image_id)
     {
         $image = InformationImages::find($image_id);
-        Storage::delete($image->images);
+        Storage::disk('s3')->delete($image->images);
         $image->delete();
 
         $this->emit('imageDeleted');

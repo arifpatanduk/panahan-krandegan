@@ -33,7 +33,7 @@ class Article extends Component
 
     public function articleUpdated($message)
     {
-        session()->flash('categoryUpdated', $message);
+        session()->flash('articleUpdated', $message);
     }
 
     public function cantDeleteCategory()

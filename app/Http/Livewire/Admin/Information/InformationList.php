@@ -8,6 +8,7 @@ use App\Models\Admin\Information\InformationType;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use phpDocumentor\Reflection\Types\This;
 
 class InformationList extends Component
 {
@@ -40,6 +41,8 @@ class InformationList extends Component
     public function createInformation()
     {
         $this->addInformation = true;
+        $this->dispatchBrowserEvent('rendertinymce');
+        
     }
 
     public function editImage($information_id)
@@ -60,7 +63,9 @@ class InformationList extends Component
         $this->name = $information_data->name;
         $this->type = $information_data->information_type_id;
         $this->desc = $information_data->desc;
+        
         $this->addInformation = true;
+        $this->dispatchBrowserEvent('rendertinymce');
     }
 
     public function cancelCreateInformation()

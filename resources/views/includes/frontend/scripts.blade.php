@@ -22,6 +22,7 @@
 <script src="{{asset('frontend/assets/vendors/vegas/vegas.min.js')}}"></script>
 <script src="{{asset('frontend/assets/vendors/jquery-ui/jquery-ui.js')}}"></script>
 <script src="{{asset('frontend/assets/vendors/timepicker/timePicker.js')}}"></script>
+@stack('addon-scripts')
 
 
 

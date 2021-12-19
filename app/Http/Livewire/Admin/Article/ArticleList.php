@@ -16,7 +16,7 @@ class ArticleList extends Component
     use WithFileUploads;
 
     // existing data
-    // public $articles;
+    public $article;
     public $categories;
 
     // collect data
@@ -39,6 +39,7 @@ class ArticleList extends Component
     // condition
     public $addMode = false;
     public $manageMode = false;
+    public $deleteMode = false;
 
 
     public function mount()
@@ -87,10 +88,10 @@ class ArticleList extends Component
 
 
         // convert double to int
-        $width = (int) round($this->width);
-        $height = (int) round($this->height);
-        $x = (int) round($this->x);
-        $y = (int) round($this->y);
+        $width = intval(round($this->width));
+        $height = intval(round($this->height));
+        $x = intval(round($this->x));
+        $y = intval(round($this->y));
 
         $croppedImage = Image::make($this->image->getRealPath());
         $croppedImage->crop($width, $height, $x, $y);
@@ -100,8 +101,8 @@ class ArticleList extends Component
         $directory = 'public/article/image';
         $filename =  time() . '_' . Auth::user()->id  . '_' . $this->image->getClientOriginalName();
         $path = $directory . $filename;
-        $image = Storage::disk('local')->put($path, $croppedImage, 'public');
-        $image = Storage::disk('local')->url($path);
+        $image = Storage::disk('s3')->put($path, $croppedImage, 'public');
+        $image = Storage::disk('s3')->url($path);
 
         $slug = Str::slug($this->title);
 
@@ -128,12 +129,12 @@ class ArticleList extends Component
     {
         $this->manageMode = $article_id;
 
-        $article = Article::find($article_id);
+        $this->article = Article::find($article_id);
 
-        $this->title = $article->title;
-        $this->content = $article->content;
-        $this->image = $article->image;
-        $this->category_id = $article->article_categories_id;
+        $this->title = $this->article->title;
+        $this->content = $this->article->content;
+        $this->image = $this->article->image;
+        $this->category_id = $this->article->article_categories_id;
     }
 
     public function cancelManageArticle()
@@ -149,6 +150,8 @@ class ArticleList extends Component
             'title' => 'required',
             'content' => 'required',
         ]);
+
+        $image = $this->image;
 
         if ($this->new_image) {
             // dd($this->new_image);
@@ -171,11 +174,11 @@ class ArticleList extends Component
             $directory = 'public/article/image';
             $filename =  time() . '_' . Auth::user()->id  . '_' . $this->new_image->getClientOriginalName();
             $path = $directory . $filename;
-            $image = Storage::disk('local')->put($path, $croppedImage, 'public');
-            $image = Storage::disk('local')->url($path);
+            $image = Storage::disk('s3')->put($path, $croppedImage, 'public');
+            $image = Storage::disk('s3')->url($path);
 
             // delete old image
-            Storage::disk('local')->delete($this->image);
+            Storage::disk('s3')->delete($this->image);
         }
 
         $slug = Str::slug($this->title);
@@ -197,10 +200,19 @@ class ArticleList extends Component
 
 
     // delete
-
-
-    public function deleteArticle()
+    public function deleteArticle($article_id)
     {
-        # code...
+        $this->deleteMode = $article_id;
+    }
+
+    public function cancelDeleteArticle($article_id)
+    {
+        $this->deleteMode = false;
+    }
+
+    public function destroyArticle($article_id)
+    {
+        $this->article->delete();
+        $this->emit('articleUpdated', 'Artikel berhasil dihapus!');
     }
 }

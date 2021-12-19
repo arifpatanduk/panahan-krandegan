@@ -55,7 +55,7 @@
                             <td>
                                 <h5 class="font-weight-bold">{{$wahana->title}}</h5>
                                 <div>
-                                    {{$wahana->updated_at->format('d F Y')}}
+                                   <small>{{$wahana->updated_at->format('d F Y')}}</small>
                                 </div>
                             </td>
                             <td>
@@ -73,8 +73,8 @@
                                 <button class="btn btn-xs btn-danger mb-2" wire:click.prevent="deleteWahana({{$wahana->id}})">
                                     <div wire:target="deleteWahana({{$wahana->id}})" wire:loading >
                                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
-                                        Menghapus
                                         </span>
+                                        Menghapus..
                                     </div>
                                     <div wire:target="deleteWahana({{$wahana->id}})" wire:loading.remove>
                                         <span class="typcn typcn-trash"></span> Hapus

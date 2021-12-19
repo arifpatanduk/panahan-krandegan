@@ -10,6 +10,9 @@
             <div class="col-xl-8 col-lg-7">
                 <div class="destinations-details__left">
                     <div class="destinations-details__img">
+                        <img src="{{ asset('frontend/assets/images/roadmap/roadmap1.png') }}" alt="">
+                    </div>
+                    <div class="destinations-details__img">
                         <img src="{{ asset('frontend/assets/images/roadmap/roadmap2.png') }}" alt="">
                     </div>
                     <div class="destinations-details__discover">
@@ -27,6 +30,11 @@
                             produksi dan pemasaran. Pengembangan UKM industri panahan ini disinergikan dengan program
                             Pengembangan Wahanan Kampung Dolanan Anak di Lahan Khas Desa seluas 4.150 m2.
                         </p>
+
+                        <div class="destinations-details__img">
+                            <img src="{{ asset('frontend/assets/images/roadmap/roadmap3.png') }}" alt="">
+                        </div>
+
                         <p class="destinations-details__discover-text-2">Penguatan UKM panahan ini akan menjadi pemantik
                             awal realisasi operasional wahana pada tahun 2021. Tahapan tahun ini fokus pada penguatan
                             produksi dan pemasaran. Dalam hal inilah, BUMDes hadir sebagai penguat pemasaran, baik
@@ -37,6 +45,11 @@
                             wahana ke depan akan dilengkapi dengan arena untuk bermain anak, seperti kolam renang, arena
                             berkuda, lapangan panahan, arena untuk bersawah, dan taman rekreasi.</p>
                     </div>
+
+                    <div class="destinations-details__img">
+                        <img src="{{ asset('frontend/assets/images/roadmap/roadmap4.png') }}" alt="">
+                    </div>
+
                 </div>
             </div>
             <div class="col-xl-4 col-lg-5">

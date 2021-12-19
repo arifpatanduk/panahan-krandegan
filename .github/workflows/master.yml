@@ -4,6 +4,14 @@ on:
   push:
     branches: [master]
 
+  workflow_dispatch:
+    branches: [master]
+    inputs:
+      job:
+        description: "Job to run."
+        required: true
+        default: "deploy-prod"
+
 jobs:
   laravel-tests:
     name: Laravel Testing
@@ -33,10 +41,10 @@ jobs:
           DB_DATABASE: database/database.sqlite
         run: vendor/bin/phpunit
 
-  deploy:
-    name: 🎉 Deploy
+  deploy-prod:
+    name: 🎉 Release to Production!
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.inputs.job == 'deploy-prod'}}
     steps:
       - name: Checkout
 
@@ -57,6 +65,6 @@ jobs:
 
           script: cd gandewalana/
 
-            chmod 755 server_deploy.sh
+            chmod 755 server_prod.sh
 
-            ./server_deploy.sh
+            ./server_prod.sh

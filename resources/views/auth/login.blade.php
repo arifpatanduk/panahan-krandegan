@@ -11,7 +11,7 @@
                         <div class="brand-logo text-center">
                             <img src="{{ asset('frontend/assets/images/resources/logo.png') }}" alt="logo">
                         </div>
-                        <h4>Hello! Selamat Datang di Gandewalana</h4>
+                        <h4>Sugeng Rawuh di Gandewalana!</h4>
                         <h6 class="font-weight-light">Login untuk melanjutkan.</h6>
                         <form class="pt-3" method="POST" action="{{ route('login') }}">
 

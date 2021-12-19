@@ -40,87 +40,13 @@
                         <p class="news-details__text-1" style="white-space:pre-wrap; word-wrap:break-word">{{
                             $article->content }}</p>
                     </div>
-                    <div class="news-details__bottom">
-                        <div class="news-details__social-list">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                    <div class="author-one">
-                        <div class="author-one__image">
-                            <img src="assets/images/blog/author-1-1.jpg" alt="">
-                        </div>
-                        <div class="author-one__content">
-                            <h3>Christine Eve</h3>
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining unchanged. It was popularised in the sheets containing.</p>
-                        </div>
-                    </div>
-                    <div class="comment-one">
-                        <h3 class="comment-one__title">2 Comments</h3>
-                        <div class="comment-one__single">
-                            <div class="comment-one__image">
-                                <img src="assets/images/blog/comment-1-1.png" alt="">
-                            </div>
-                            <div class="comment-one__content">
-                                <h3>Kevin Martin</h3>
-                                <p>It has survived not only five centuries, but also the leap into electronic
-                                    typesetting unchanged. It was popularised in the sheets containing lorem ipsum is
-                                    simply free text available in the martket to use now.</p>
-                                <a href="#" class="thm-btn comment-one__btn">Reply</a>
-                            </div>
-                        </div>
-                        <div class="comment-one__single">
-                            <div class="comment-one__image">
-                                <img src="assets/images/blog/comment-1-2.png" alt="">
-                            </div>
-                            <div class="comment-one__content">
-                                <h3>Sarah Albert</h3>
-                                <p>It has survived not only five centuries, but also the leap into electronic
-                                    typesetting unchanged. It was popularised in the sheets containing lorem ipsum is
-                                    simply free text available in the martket to use now.</p>
-                                <a href="#" class="thm-btn comment-one__btn">Reply</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-form">
-                        <h3 class="comment-form__title">Leave a Comment</h3>
-                        <form action="inc/sendemail.php" class="comment-one__form">
-                            <div class="row">
-                                <div class="col-xl-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="text" placeholder="Your name" name="name">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="email" placeholder="Email address" name="email">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="comment-form__input-box">
-                                        <textarea name="message" placeholder="Write Comment"></textarea>
-                                    </div>
-                                    <button type="submit" class="thm-btn comment-form__btn">Submit Comment</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+
+                    @livewire('article.main', ['article_id' => $article->id], key(time() . $article->id))
+
                 </div>
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="sidebar">
-                    {{-- <div class="sidebar__single sidebar__search">
-                        <h3 class="sidebar__title clr-white">Search</h3>
-                        <form action="#" class="sidebar__search-form">
-                            <input type="search" placeholder="Search">
-                            <button type="submit"><i class="icon-magnifying-glass"></i></button>
-                        </form>
-                    </div> --}}
                     <div class="sidebar__single sidebar__post">
                         <h3 class="sidebar__title">Artikel Terbaru</h3>
                         <ul class="sidebar__post-list list-unstyled">

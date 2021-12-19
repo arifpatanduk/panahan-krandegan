@@ -14,12 +14,16 @@
             <div>
                 <div class="d-flex justify-content-end my-2">
                     <button wire:click.prevent="cancelAddType" class="btn btn-xs btn-danger mx-2">
-                        Cancel
+                        Batal
                     </button>
-                    <button class="btn btn-xs btn-info">Submit
+                    <button class="btn btn-xs btn-info">
+                        <div wire:loading.remove wire:target="storeType">
+                            Simpan
+                        </div>
                         <div wire:target="storeType" wire:loading>
                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
                             </span>
+                            Menyimpan...
                         </div>
                     </button>
                 </div>
@@ -91,6 +95,7 @@
                             <div wire:target="deleteType({{ $type->id }})" wire:loading>
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
                                 </span>
+                                Menghapus...
                             </div>
                             <div wire:target="deleteType({{ $type->id }})" wire:loading.remove>
                                 <span class="typcn typcn-trash"></span>

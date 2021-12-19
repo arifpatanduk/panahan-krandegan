@@ -19,7 +19,7 @@
                                         <i class="fas fa-phone-square-alt"></i>
                                     </div>
                                     <div class="text">
-                                        <a href="tel:+92-666-888-0000">+92 666 888 0000</a>
+                                        <a href="tel:+92-666-888-0000">+62 812 2694 2679</a>
                                     </div>
                                 </li>
                                 <li>
@@ -59,6 +59,9 @@
                             <ul class="list-unstyled footer-widget__explore-list">
                                 <li><a href="https://krandeganbayan.id/">Krandegan</a></li>
                                 <li><a href="https://uns.ac.id/id/">UNS</a></li>
+                                <li><a href="https://purworejokab.go.id/main/">Purworejo</a></li>
+                                <li><a href="https://jatengprov.go.id/">Jawa Tengah</a></li>
+                                <li><a href="https://kemenparekraf.go.id/">Kemenparekraf</a></li>
                             </ul>
                         </div>
                     </div>
@@ -101,10 +104,10 @@
                     <div class="site-footer__bottom-inner">
                         <div class="site-footer__bottom-left">
                             <div class="footer-widget__social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-facebook"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.youtube.com/channel/UCLWF67UGVdadeTLzypF-h8A"><i
+                                        class="fab fa-youtube"></i></a>
+                                <a href="https://api.whatsapp.com/send?phone=6281226942679"><i
+                                        class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                         <div class="site-footer__bottom-right">

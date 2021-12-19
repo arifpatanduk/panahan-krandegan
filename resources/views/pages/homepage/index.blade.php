@@ -23,7 +23,7 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="image-layer"
-                    style="background-image: url({{asset('frontend/assets/images/backgrounds/main-slider-1-ar.jpg')}});">
+                    style="background-image: url({{asset('frontend/assets/images/backgrounds/hero1.jpeg')}});">
                 </div>
                 <div class="image-layer-overlay"></div>
                 <div class="container">
@@ -39,15 +39,15 @@
             </div>
             <div class="swiper-slide">
                 <div class="image-layer"
-                    style="background-image: url({{asset('frontend/assets/images/backgrounds/main-slider-2-ar.jpg')}});">
+                    style="background-image: url({{asset('frontend/assets/images/backgrounds/hero3.jpeg')}});">
                 </div>
                 <div class="image-layer-overlay"></div>
                 <div class="container">
                     <div class="swiper-slide-inner">
                         <div class="row">
                             <div class="col-xl-12">
-                                <h2> Travel & Adventures</h2>
-                                <p>Where Would You Like To Go?</p>
+                                <h2> Gandewalana</h2>
+                                <p>Krandegan Desa Wahana Dolanan Panah</p>
                             </div>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
                     <div class="swiper-slide-inner">
                         <div class="row">
                             <div class="col-xl-12">
-                                <h2> Travel & Adventures</h2>
-                                <p>Where Would You Like To Go?</p>
+                                <h2> Gandewalana</h2>
+                                <p>Krandegan Desa Wahana Dolanan Panah</p>
                             </div>
                         </div>
                     </div>
@@ -115,21 +115,39 @@
             <h2 class="section-title__title">Wahana Gandewalana</h2>
         </div>
         <div class="row masonary-layout">
-            <div class="col-xl-3 col-lg-3">
-                <div class="destinations-one__single">
-                    <div class="destinations-one__img">
-                        <img src="{{asset('frontend/assets/images/destination/destination-1-1.png')}}" alt="">
-                        <div class="destinations-one__content">
-                            <h2 class="destinations-one__title"><a href="destinations-details.html">Spain</a>
-                            </h2>
-                        </div>
-                        <div class="destinations-one__button">
-                            <a href="#">6 tours</a>
+            @php
+                $numOfCols = 4;
+                $rowCount = 0;
+                $bootstrapColWidth = 12 / $numOfCols;
+            @endphp 
+                @foreach ($wahanas as $wahana)
+                @if ($rowCount % $numOfCols == 0)
+                    <div class="row">
+                @endif
+                    @php
+                        $rowCount++;
+                    @endphp
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="destinations-one__single">
+                            <div class="destinations-one__img">
+                                <img src="{{count($wahana->wahanaImages) != 0 ? Storage::disk('s3')->temporaryUrl($wahana->wahanaImages[0]->images, now()->addMinutes(100)) : asset('frontend/assets/images/destination/destination-1-1.png')}}" alt="" height="285px">
+                                <div class="destinations-one__content">
+                                    <h2 class="destinations-one__title"><a href="{{route('wahana.show', ['wahana_id'=>$wahana->id])}}">{{$wahana->title}}</a>
+                                    </h2>
+                                </div>
+                                <div class="destinations-one__button">
+                                    <a href="#">
+                                        <i class="fas fa-star"></i> {{$wahana->total_rating}}
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                @if ($rowCount % $numOfCols == 0)
                 </div>
-            </div>
-            <div class="col-xl-6 col-lg-6">
+                @endif
+                @endforeach
+            {{-- <div class="col-xl-6 col-lg-6">
                 <div class="destinations-one__single">
                     <div class="destinations-one__img">
                         <img src="{{asset('frontend/assets/images/destination/destination-1-2.png')}}" alt="">
@@ -185,7 +203,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </div>
@@ -204,74 +222,31 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="popular-tours__carousel owl-theme owl-carousel">
+                    @foreach ($informations as $information)
                     <div class="popular-tours__single">
                         <div class="popular-tours__img">
-                            <img src="{{asset('frontend/assets/images/resources/popular-tours__img-1.jpg')}}" alt="">
-                            <div class="popular-tours__icon">
-                                <a href="tour-details.html">
-                                    <i class="fa fa-heart"></i>
-                                </a>
-                            </div>
+                            <img src="{{ count($information->informationImages) != 0 ? Storage::disk('s3')->temporaryUrl($information->informationImages[0]->images, now()->addMinutes(100)) : asset('frontend/assets/images/resources/popular-tours__img-1.jpg')}}"
+                                alt="">
                         </div>
                         <div class="popular-tours__content">
                             <div class="popular-tours__stars">
                                 <i class="fa fa-star"></i> 8.5
                             </div>
-                            <h3 class="popular-tours__title"><a href="tour-details.html">Panahan Utama</a></h3>
-                            <p class="popular-tours__rate"><span>Rp. 10.000</span> / Per Gundul</p>
+                            <h3 class="popular-tours__title"><a href="tour-details.html">{{$information->name}}</a></h3>
+                            <p>{!!strlen($information->desc) > 50 ? substr($information->desc, 0, 50)." ... " :
+                                $information->desc!!}</p>
                             <ul class="popular-tours__meta list-unstyled">
-                                <li><a href="">Lihat Selengkapnya</a></li>
+                                <li><a href="{{route('information.show', ['information_id'=>$information->id])}}">Lihat Selengkapnya</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="popular-tours__single">
-                        <div class="popular-tours__img">
-                            <img src="{{asset('frontend/assets/images/resources/popular-tours__img-2.jpg')}}" alt="">
-                            <div class="popular-tours__icon">
-                                <a href="tour-details.html">
-                                    <i class="fa fa-heart"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="popular-tours__content">
-                            <div class="popular-tours__stars">
-                                <i class="fa fa-star"></i> 10.0 Superb
-                            </div>
-                            <h3 class="popular-tours__title"><a href="tour-details.html">Kolam renang anak</a></h3>
-                            <p class="popular-tours__rate"><span>$1870</span> / Per Gundul</p>
-                            <ul class="popular-tours__meta list-unstyled">
-                                <li><a href="">Lihat Selengkapnya</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="popular-tours__single">
-                        <div class="popular-tours__img">
-                            {{-- <img src="{{asset('frontend/assets/images/resources/popular-tours__img-3.jpg')}}"
-                                alt=""> --}}
-                            <img src="{{asset('frontend/assets/images/resources/popular-tours__img-3.jpg')}}" alt="">
-                            <div class="popular-tours__icon">
-                                <a href="tour-details.html">
-                                    <i class="fa fa-heart"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="popular-tours__content">
-                            <div class="popular-tours__stars">
-                                <i class="fa fa-star"></i> 9.1
-                            </div>
-                            <h3 class="popular-tours__title"><a href="tour-details.html">Taman bermain</a></h3>
-                            <p class="popular-tours__rate"><span>Rp. 1000</span> / Per Gundul</p>
-                            <ul class="popular-tours__meta list-unstyled">
-                                <li><a href="">Lihat Selengkapnya</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--Wahana End-->
+<!--Information End-->
 
 <!--Why Choose Start-->
 <section class="why-choose">
@@ -421,34 +396,28 @@
                 }}'>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-1.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/uns_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-2.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/kedaireka_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-3.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/profildesa_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-4.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/siks_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-5.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/uns_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-1.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/kedaireka_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-2.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/profildesa_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-3.png')}}" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-4.png')}}" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-5.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/siks_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                         </div>
                     </div>
@@ -504,11 +473,23 @@
                         </div>
                         <div class="news-one__content">
                             <ul class="list-unstyled news-one__meta">
-                                <li><a href="{{ route('articles.show', $article->slug) }}"><i
-                                            class="far fa-user-circle"></i>{{
-                                        $article->user->name }}</a></li>
-                                <li><a href="{{ route('articles.show', $article->slug) }}"><i
-                                            class="far fa-comments"></i>2 Comments</a>
+                                <li>
+                                    <a href="{{ route('articles.show', $article->slug) }}">
+                                        <i class="far fa-user-circle"></i>{{ $article->user->name }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('articles.show', $article->slug) }}">
+                                        <i class="far fa-comments"></i>
+                                        {{ count($article->allCommnets) }} Komentar
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('articles.show', $article->slug) }}">
+                                        <i class="far fa-thumbs-up"></i>
+                                        {{ count($article->allLikes) }} Suka
+                                    </a>
                                 </li>
                             </ul>
                             <h3 class="news-one__title">
