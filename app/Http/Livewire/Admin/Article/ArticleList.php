@@ -88,10 +88,10 @@ class ArticleList extends Component
 
 
         // convert double to int
-        $width = (int) round($this->width);
-        $height = (int) round($this->height);
-        $x = (int) round($this->x);
-        $y = (int) round($this->y);
+        $width = intval(round($this->width));
+        $height = intval(round($this->height));
+        $x = intval(round($this->x));
+        $y = intval(round($this->y));
 
         $croppedImage = Image::make($this->image->getRealPath());
         $croppedImage->crop($width, $height, $x, $y);
@@ -101,8 +101,8 @@ class ArticleList extends Component
         $directory = 'public/article/image';
         $filename =  time() . '_' . Auth::user()->id  . '_' . $this->image->getClientOriginalName();
         $path = $directory . $filename;
-        $image = Storage::disk('local')->put($path, $croppedImage, 'public');
-        $image = Storage::disk('local')->url($path);
+        $image = Storage::disk('s3')->put($path, $croppedImage, 'public');
+        $image = Storage::disk('s3')->url($path);
 
         $slug = Str::slug($this->title);
 
@@ -174,11 +174,11 @@ class ArticleList extends Component
             $directory = 'public/article/image';
             $filename =  time() . '_' . Auth::user()->id  . '_' . $this->new_image->getClientOriginalName();
             $path = $directory . $filename;
-            $image = Storage::disk('local')->put($path, $croppedImage, 'public');
-            $image = Storage::disk('local')->url($path);
+            $image = Storage::disk('s3')->put($path, $croppedImage, 'public');
+            $image = Storage::disk('s3')->url($path);
 
             // delete old image
-            Storage::disk('local')->delete($this->image);
+            Storage::disk('s3')->delete($this->image);
         }
 
         $slug = Str::slug($this->title);
