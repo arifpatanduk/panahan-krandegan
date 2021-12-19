@@ -396,34 +396,28 @@
                 }}'>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-1.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/uns_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-2.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/kedaireka_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-3.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/profildesa_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-4.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/siks_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-5.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/uns_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-1.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/kedaireka_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-2.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/profildesa_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                             <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-3.png')}}" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-4.png')}}" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="{{asset('frontend/assets/images/brand/brand-one-5.png')}}" alt="">
+                                <img src="{{asset('frontend/assets/images/resources/siks_logo.png')}}" alt="">
                             </div><!-- /.swiper-slide -->
                         </div>
                     </div>
